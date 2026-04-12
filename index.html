@@ -1,0 +1,743 @@
+Here is the updated HTML file with a switch to toggle between the original prediction formula and the new V2 Mod formula from the 4487 file.
+
+```html
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>TRX CK VIP HACK V20 | DUAL FORMULA (V2 MOD)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.onkeydown = e => { if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67)) || (e.ctrlKey && e.keyCode == 85)) return false; };
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; }
+        body { background: #0a0e1a; overflow: hidden; font-family: 'Inter', system-ui, sans-serif; }
+        
+        .floating-panel {
+            position: fixed;
+            top: 70px;
+            left: 12px;
+            width: 280px;
+            background: rgba(12, 15, 28, 0.96);
+            backdrop-filter: blur(14px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 70, 70, 0.55);
+            box-shadow: 0 12px 28px -8px rgba(0,0,0,0.7);
+            z-index: 999;
+            cursor: grab;
+        }
+        .floating-panel:active { cursor: grabbing; }
+        .panel-header {
+            padding: 10px 14px 6px 14px;
+            cursor: grab;
+            background: rgba(0,0,0,0.3);
+            border-radius: 24px 24px 18px 18px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .panel-content {
+            padding: 10px 14px 14px 14px;
+            cursor: auto;
+        }
+        #predictionValue {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-align: center;
+            letter-spacing: 3px;
+            font-family: 'Monaco', monospace;
+            margin: 4px 0 2px;
+        }
+        .big-glow { color: #ffcc44 !important; text-shadow: 0 0 12px #ffaa33; }
+        .small-glow { color: #5df2ff !important; text-shadow: 0 0 12px #00e0ff; }
+        .wait-glow { color: #b0b8d0 !important; }
+        
+        .info-badge {
+            background: #0a0c18cc;
+            border-radius: 20px;
+            padding: 5px 8px;
+            font-size: 9px;
+            font-weight: 600;
+            margin-top: 6px;
+            border: 0.5px solid #2a2e45;
+            color: #e2e8f0;
+            text-align: center;
+        }
+        
+        .history-scroll {
+            max-height: 160px;
+            overflow-y: auto;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 9px;
+            background: #090c16;
+            border-radius: 18px;
+            padding: 6px 5px;
+        }
+        .history-entry {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4px 6px;
+            border-bottom: 1px solid #181e30;
+            gap: 6px;
+        }
+        .time-col { color: #8ba0c4; min-width: 52px; font-size: 8px; }
+        .issue-col { color: #ffbc6e; background: #1e1a2f; padding: 1px 6px; border-radius: 30px; font-size: 8px; }
+        .result-pill { padding: 1px 8px; border-radius: 30px; font-weight: 700; font-size: 8px; }
+        .pill-big { background: #ffcc4422; color: #ffdd88; border: 0.5px solid #ffcc66; }
+        .pill-small { background: #5df2ff22; color: #bbffff; border: 0.5px solid #5df2ff; }
+        .match-yes { color: #4ade80; font-weight: bold; }
+        .match-no { color: #f87171; }
+        
+        .streak-box {
+            display: flex;
+            justify-content: space-between;
+            background: #0a0c18;
+            padding: 5px 12px;
+            border-radius: 28px;
+            margin-top: 8px;
+            font-weight: bold;
+            font-size: 10px;
+        }
+        .toggle-btn {
+            background: #ff3b3b30;
+            border: 0.5px solid #ff6666;
+            border-radius: 30px;
+            padding: 3px 10px;
+            font-size: 8px;
+            font-weight: bold;
+            color: #ffaaaa;
+            cursor: pointer;
+        }
+        .switch-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #0a0c18cc;
+            border-radius: 28px;
+            padding: 6px 12px;
+            margin-top: 8px;
+            border: 0.5px solid #ff4d4d55;
+        }
+        .switch-label {
+            font-size: 9px;
+            font-weight: bold;
+            color: #ffaa88;
+        }
+        .formula-badge {
+            font-size: 8px;
+            background: #1e1a2f;
+            padding: 2px 8px;
+            border-radius: 30px;
+            color: #ffccaa;
+        }
+        #formulaSwitch {
+            width: 40px;
+            height: 20px;
+            background: #3a2a2a;
+            border-radius: 30px;
+            border: none;
+            position: relative;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #formulaSwitch.active {
+            background: #ff5555;
+        }
+        #formulaSwitch::after {
+            content: "";
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 3px;
+            transition: 0.2s;
+        }
+        #formulaSwitch.active::after {
+            left: 21px;
+        }
+        #game_frame {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: 1;
+        }
+        .login-overlay {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, #0b0f1c, #010205);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-card {
+            background: rgba(10, 14, 24, 0.96);
+            border-radius: 48px;
+            padding: 32px 24px;
+            width: 300px;
+            border: 1px solid #ff4d4d;
+            text-align: center;
+        }
+        .key-field {
+            background: #01010180;
+            border: 1px solid #ff5e5e;
+            border-radius: 60px;
+            width: 100%;
+            padding: 12px;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            outline: none;
+        }
+        .login-btn {
+            background: #e13b3b;
+            border-radius: 60px;
+            padding: 10px;
+            width: 100%;
+            font-weight: bold;
+            color: white;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        ::-webkit-scrollbar { width: 2px; }
+    </style>
+</head>
+<body>
+
+<div id="loginOverlay" class="login-overlay">
+    <div class="login-card">
+        <div class="text-red-500 font-black text-2xl tracking-wider mb-1">CK TRX ONLY HACK•V20</div>
+        <div class="text-gray-400 text-[10px] mb-6">DUAL FORMULA ENGINE (V2 MOD READY)</div>
+        <input type="password" id="secretKey" class="key-field" placeholder="ENTER PASSWORD">
+        <button class="login-btn" onclick="authSystem()">⚡ UNLOCK KEY ⚡</button>
+        <div class="text-[8px] text-gray-500 mt-5">🔐 PASSWORD: Contact @DarkSize501</div>
+    </div>
+</div>
+
+<iframe id="game_frame" src="https://www.cklottery.club/#/register?invitationCode=44522535"></iframe>
+
+<div id="floatingWidget" class="floating-panel" style="display: none;">
+    <div class="panel-header" id="dragHandle">
+        <span class="font-bold text-[10px] tracking-wider text-red-400">⟡ TRX HACK DUAL ⟡</span>
+        <div class="flex gap-2">
+            <span id="sessionTimer" class="text-[8px] text-gray-400 bg-black/40 px-1.5 py-0.5 rounded-full">∞</span>
+            <button id="hidePanelBtn" class="toggle-btn">HIDE</button>
+        </div>
+    </div>
+    <div class="panel-content">
+        <div id="predictionValue" class="text-center">——</div>
+        <div id="formulaMessage" class="info-badge">⏳ SYNCING...</div>
+        
+        <!-- DUAL FORMULA SWITCH (V2 MOD TOGGLE) -->
+        <div class="switch-container">
+            <span class="switch-label">⚡ FORMULA MODE</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="formula-badge" id="currentFormulaLabel">ORIGINAL</span>
+                <button id="formulaSwitch" class=""></button>
+            </div>
+        </div>
+        
+        <div class="streak-box">
+            <span class="text-gray-300">🔥 STREAK</span>
+            <span id="streakNumber" class="text-yellow-300 font-mono text-sm">0</span>
+        </div>
+        <div class="mt-2">
+            <div class="flex justify-between text-[8px] text-indigo-300 mb-1 px-1">
+                <span>📜 LIVE LOG (time/issue)</span>
+            </div>
+            <div id="historyLogContainer" class="history-scroll">
+                <div class="text-center text-gray-500 text-[9px] py-2">awaiting draw...</div>
+            </div>
+        </div>
+        <div class="text-[7px] text-center text-gray-500 mt-2">🖱️ DEVELOPER BY → @DarkSize501 | MOD V2</div>
+    </div>
+</div>
+
+<button id="showPanelFloatBtn" style="position:fixed; bottom:20px; right:20px; z-index:1001; background:#ff3b3bdd; border:none; border-radius:40px; padding:8px 16px; color:white; font-weight:bold; font-size:12px; cursor:pointer; display:none;">📊 SHOW PREDICTOR</button>
+
+<script>
+    // ======================= ORIGINAL PREDICTION ENGINE (classic pattern+frequency) =======================
+    class PredictionEngineOriginal {
+        constructor() {
+            this.history = [];
+            this.predictionMode = 'auto';
+            this.patternLength = 5;
+            this.sequenceDepth = 10;
+        }
+        setPredictionMode(mode) { if (['auto','strict','trend'].includes(mode)) this.predictionMode = mode; }
+        setPatternLength(len) { if (len>=2 && len<=10) this.patternLength = len; }
+        setSequenceDepth(depth) { if (depth>=3 && depth<=50) this.sequenceDepth = depth; }
+        addNumber(num) {
+            if (num<0 || num>9) return false;
+            this.history.unshift(num);
+            if(this.history.length > this.sequenceDepth+5) this.history = this.history.slice(0, this.sequenceDepth+3);
+            return true;
+        }
+        resetHistory() { this.history = []; }
+        getHistory() { return [...this.history]; }
+        
+        detectRepeatingPattern() {
+            if(this.history.length<4) return null;
+            const chrono = this.history;
+            const maxPatternLen = Math.min(this.patternLength, 10, Math.floor(chrono.length/2));
+            if(maxPatternLen<2) return null;
+            let bestPattern=null, bestNext=null, bestConf=0;
+            for(let len=2; len<=maxPatternLen; len++) {
+                if(chrono.length<len+1) continue;
+                const candidatePattern = chrono.slice(0,len);
+                let occurrences=[];
+                for(let i=0; i<=chrono.length-len; i++) {
+                    let match=true;
+                    for(let j=0;j<len;j++) if(chrono[i+j]!==candidatePattern[j]) {match=false;break;}
+                    if(match) occurrences.push(i);
+                }
+                if(occurrences.length>=2) {
+                    let nextNums=[];
+                    for(let pos of occurrences) {
+                        let nextIdx=pos+len;
+                        if(nextIdx<chrono.length) nextNums.push(chrono[nextIdx]);
+                    }
+                    if(nextNums.length) {
+                        let freq={};
+                        for(let n of nextNums) freq[n]=(freq[n]||0)+1;
+                        let maxCount=0, mostCommon=null;
+                        for(let [num,count] of Object.entries(freq)) if(count>maxCount) {maxCount=count; mostCommon=parseInt(num);}
+                        let conf = maxCount/occurrences.length;
+                        if(conf>bestConf) { bestConf=conf; bestPattern=candidatePattern.join(''); bestNext=mostCommon; }
+                    }
+                }
+            }
+            if(bestNext!==null) return { pattern:bestPattern, next:bestNext, confidence:Math.round(bestConf*100) };
+            return null;
+        }
+        predictByFrequency() {
+            if(this.history.length<2) return null;
+            const lastNum=this.history[0];
+            let followers=[];
+            for(let i=0;i<this.history.length-1;i++) if(this.history[i]===lastNum) followers.push(this.history[i+1]);
+            if(!followers.length) return null;
+            let freq={}; for(let f of followers) freq[f]=(freq[f]||0)+1;
+            let maxCount=0,most=null; for(let [num,count] of Object.entries(freq)) if(count>maxCount) {maxCount=count; most=parseInt(num);}
+            return most;
+        }
+        predictByTrend() {
+            if(this.history.length<3) return null;
+            let recent=this.history.slice(0,4);
+            let avg=recent.reduce((a,b)=>a+b,0)/recent.length;
+            if(avg>4.5) return 7;
+            if(avg<3.5) return 2;
+            return this.history[0]>=5?3:6;
+        }
+        predict() {
+            let predicted=null, explanation="", modeUsed=this.predictionMode, confidence=0;
+            if(this.predictionMode==='strict') {
+                let pat=this.detectRepeatingPattern();
+                if(pat && pat.next!==null) { predicted=pat.next; confidence=pat.confidence; explanation=`Strict pattern "${pat.pattern}" → ${predicted}`; }
+                else explanation="No repeating pattern";
+            } else if(this.predictionMode==='trend') {
+                predicted=this.predictByTrend(); confidence=60;
+                explanation=predicted!==null?"Trend following":"Insufficient trend data";
+            } else {
+                let pat=this.detectRepeatingPattern();
+                if(pat && pat.next!==null) { predicted=pat.next; confidence=pat.confidence; modeUsed='pattern'; explanation=`Pattern "${pat.pattern}" (${pat.confidence}%) → ${predicted}`; }
+                else {
+                    predicted=this.predictByFrequency();
+                    if(predicted!==null) { confidence=70; modeUsed='frequency'; explanation=`Last ${this.history[0]} often followed by ${predicted}`; }
+                    else explanation="Need more data";
+                }
+            }
+            if(predicted===null) return { predictedNumber:null, type:null, confidence:0, explanation, needMoreData:true };
+            return { predictedNumber:predicted, type:predicted<5?'SMALL':'BIG', confidence, explanation, modeUsed, needMoreData:false, historyLength:this.history.length };
+        }
+        predictFormatted() {
+            let r=this.predict();
+            if(r.needMoreData) return `🔮 ${r.explanation}`;
+            return `${r.type==='BIG'?'🔴':'🔵'} Next: ${r.predictedNumber} (${r.type}) | ${r.explanation} | ${r.confidence}%`;
+        }
+    }
+    
+    // ======================= V2 MOD ENGINE (Alpha-Beta Logic from 4487) =======================
+    class PredictionEngineV2 {
+        constructor() {
+            this.history = [];     // store numbers 0-9 (latest first)
+        }
+        addNumber(num) {
+            if (num<0 || num>9) return false;
+            this.history.unshift(num);
+            if(this.history.length > 30) this.history.pop();
+            return true;
+        }
+        resetHistory() { this.history = []; }
+        
+        // Core Alpha-Beta V3 logic exactly from 4487 file (weighted average)
+        computePrediction() {
+            if (this.history.length < 3) return null;
+            // take first 3 elements (most recent draws) for weight: h[0]*0.5 + h[1]*0.3 + h[2]*0.2
+            const h0 = this.history[0];
+            const h1 = this.history[1];
+            const h2 = this.history[2];
+            const weighted = (h0 * 0.5) + (h1 * 0.3) + (h2 * 0.2);
+            const predictedType = weighted >= 4.5 ? "BIG" : "SMALL";
+            // For compatibility we also output a representative number (5 as BIG threshold)
+            const predictedNumber = predictedType === "BIG" ? 7 : 2;
+            return { type: predictedType, predictedNumber: predictedNumber, explanation: `V2 Alpha-Beta (${weighted.toFixed(1)}) → ${predictedType}`, confidence: 82 };
+        }
+        
+        predict() {
+            const result = this.computePrediction();
+            if (!result) return { predictedNumber: null, type: null, confidence: 0, explanation: "Need 3 draws for V2 Mod", needMoreData: true };
+            return { 
+                predictedNumber: result.predictedNumber, 
+                type: result.type, 
+                confidence: result.confidence, 
+                explanation: result.explanation, 
+                needMoreData: false,
+                modeUsed: "V2 MOD"
+            };
+        }
+    }
+    
+    // ---------- GLOBAL SYSTEM (dual formula) ----------
+    const REQUIRED_PASSWORD = "ALLLOTTERYHACK26";
+    let systemLocked = false, sessionIdTrack = null;
+    let lastIssueId = "", resultsHistory = [];   // store "BIG"/"SMALL"
+    let lastMadePrediction = null;
+    let currentStreak = 0;
+    
+    // Dual engine instances
+    let originalEngine = null;
+    let v2Engine = null;
+    let activeFormulaMode = "ORIGINAL";   // "ORIGINAL" or "V2MOD"
+    
+    let widget, historyDiv, predictionSpan, formulaMsgSpan, streakSpan, timerSpan, formulaSwitchBtn, currentFormulaLabelSpan;
+    let showBtn, hideBtn;
+    
+    // ---------- FETCH SYSTEM (robust + fallback) ----------
+    let fetchRetryCount = 0;
+    let fallbackActive = false;
+    let lastDrawCache = null;
+    
+    async function fetchDrawDataDirect() {
+        const targetUrl = "https://draw.ar-lottery01.com/TrxWinGo/TrxWinGo_1M/GetHistoryIssuePage.json";
+        const proxyList = [
+            "https://api.allorigins.win/get?url=",
+            "https://corsproxy.io/?",
+            "https://api.codetabs.com/v1/proxy?quest="
+        ];
+        
+        for (let i = 0; i < proxyList.length; i++) {
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 5000);
+                const proxyUrl = proxyList[i] + encodeURIComponent(targetUrl);
+                const response = await fetch(proxyUrl, { signal: controller.signal });
+                clearTimeout(timeoutId);
+                if (!response.ok) continue;
+                const jsonData = await response.json();
+                let parsed;
+                if (i === 0) {
+                    if (jsonData.contents) parsed = JSON.parse(jsonData.contents);
+                    else parsed = jsonData;
+                } else {
+                    parsed = jsonData;
+                }
+                if (parsed && parsed.data && parsed.data.list && parsed.data.list.length > 0) {
+                    fetchRetryCount = 0;
+                    fallbackActive = false;
+                    lastDrawCache = parsed.data.list;
+                    if(formulaMsgSpan && !formulaMsgSpan.innerText.includes("V2")) formulaMsgSpan.innerHTML = "✅ LIVE SYNC ACTIVE";
+                    return parsed.data.list;
+                }
+            } catch(e) { continue; }
+        }
+        
+        if (lastDrawCache && lastDrawCache.length > 0) {
+            if(!fallbackActive) {
+                fallbackActive = true;
+                if(formulaMsgSpan) formulaMsgSpan.innerHTML = "⚠️ FALLBACK MODE (cached)";
+            }
+            return lastDrawCache;
+        }
+        
+        if(formulaMsgSpan) formulaMsgSpan.innerHTML = "📡 DEMO MODE: generating test data";
+        return generateMockDrawData();
+    }
+    
+    function generateMockDrawData() {
+        const mockList = [];
+        const now = new Date();
+        for (let i = 0; i < 25; i++) {
+            const randomNum = Math.floor(Math.random() * 10);
+            const issueDate = new Date(now.getTime() - i * 3 * 60000);
+            const issueNum = "TRX" + issueDate.getFullYear() + String(issueDate.getMonth()+1).padStart(2,'0') + String(issueDate.getDate()).padStart(2,'0') + "-" + String(1000 + i).slice(1);
+            mockList.push({
+                issueNumber: issueNum,
+                number: randomNum.toString(),
+                openTime: issueDate.toISOString()
+            });
+        }
+        return mockList;
+    }
+    
+    async function fetchDrawData() {
+        if(systemLocked) return;
+        try {
+            const drawList = await fetchDrawDataDirect();
+            if (!drawList || drawList.length === 0) return;
+            
+            let latestIssue = drawList[0].issueNumber;
+            let latestNumRaw = drawList[0].number;
+            let latestNum = parseInt(latestNumRaw);
+            if(isNaN(latestNum)) latestNum = 5;
+            let currentResult = (latestNum >= 5) ? "BIG" : "SMALL";
+            let currentDigit = latestNum;
+            
+            if(latestIssue !== lastIssueId) {
+                if(lastIssueId !== "") {
+                    // new draw event
+                    resultsHistory.push(currentResult);
+                    if(resultsHistory.length > 40) resultsHistory.shift();
+                    
+                    // feed BOTH engines with the raw digit
+                    originalEngine.addNumber(currentDigit);
+                    v2Engine.addNumber(currentDigit);
+                    
+                    let nowTime = new Date();
+                    let timeString = `${nowTime.getHours().toString().padStart(2,'0')}:${nowTime.getMinutes().toString().padStart(2,'0')}:${nowTime.getSeconds().toString().padStart(2,'0')}`;
+                    let isMatch = (lastMadePrediction === currentResult);
+                    if(isMatch) currentStreak++;
+                    else currentStreak = 0;
+                    if(streakSpan) streakSpan.innerText = currentStreak;
+                    
+                    addHistoryLog(latestIssue.slice(-6), currentResult, lastMadePrediction || "?", isMatch, timeString);
+                    
+                    // generate prediction based on active formula mode
+                    updatePredictionFromActiveEngine();
+                } else {
+                    // initial seeding for both engines (fill history)
+                    let seedCount = Math.min(20, drawList.length);
+                    for(let i=seedCount-1; i>=0; i--) {
+                        let num = parseInt(drawList[i].number);
+                        if(!isNaN(num)) {
+                            originalEngine.addNumber(num);
+                            v2Engine.addNumber(num);
+                        }
+                    }
+                    for(let i=seedCount-1; i>=0; i--) {
+                        let n = parseInt(drawList[i].number);
+                        if(!isNaN(n)) resultsHistory.push(n>=5?"BIG":"SMALL");
+                    }
+                    updatePredictionFromActiveEngine();
+                }
+                lastIssueId = latestIssue;
+            } else {
+                // same issue but maybe refresh prediction (no new draw)
+                if((originalEngine.history.length > 0 || v2Engine.history.length > 0) && streakSpan) streakSpan.innerText = currentStreak;
+                updatePredictionFromActiveEngine();
+            }
+        } catch(err) {
+            console.warn("fetch retry", err);
+            if(formulaMsgSpan && !fallbackActive && !formulaMsgSpan.innerText.includes("V2")) formulaMsgSpan.innerHTML = "🔄 reconnecting...";
+        }
+    }
+    
+    function updatePredictionFromActiveEngine() {
+        let engineResult;
+        if (activeFormulaMode === "ORIGINAL") {
+            engineResult = originalEngine.predict();
+        } else {
+            engineResult = v2Engine.predict();
+        }
+        
+        if(!engineResult || engineResult.needMoreData || engineResult.predictedNumber===null) {
+            predictionSpan.innerText = "⏳";
+            predictionSpan.className = "wait-glow text-center";
+            formulaMsgSpan.innerHTML = activeFormulaMode === "ORIGINAL" ? "📡 waiting for data..." : "V2 MOD: need 3 draws";
+            return;
+        }
+        
+        let pred = engineResult.type; // "BIG" or "SMALL"
+        predictionSpan.innerText = pred;
+        if(pred === "BIG") predictionSpan.className = "big-glow text-center";
+        else if(pred === "SMALL") predictionSpan.className = "small-glow text-center";
+        else predictionSpan.className = "wait-glow text-center";
+        
+        let shortExp = engineResult.explanation ? engineResult.explanation.substring(0, 52) : (activeFormulaMode === "ORIGINAL" ? "Pattern prediction" : "V2 weighted avg");
+        let modeTag = activeFormulaMode === "ORIGINAL" ? "🔮 ORIG" : "⚡ V2 MOD";
+        formulaMsgSpan.innerHTML = `${modeTag} | ${pred} | ${shortExp}`;
+        lastMadePrediction = pred;
+        if(streakSpan) streakSpan.innerText = currentStreak;
+    }
+    
+    function addHistoryLog(issueShort, actualResult, predictedValue, isCorrect, timestamp) {
+        if(!historyDiv) return;
+        if(historyDiv.children.length===1 && historyDiv.children[0].innerText.includes("awaiting")) historyDiv.innerHTML="";
+        let entry = document.createElement("div");
+        entry.className = "history-entry";
+        let timeStr = timestamp || new Date().toLocaleTimeString([], { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+        let resultPillClass = actualResult==="BIG" ? "pill-big" : "pill-small";
+        let predText = predictedValue || "?";
+        let matchMark = isCorrect ? "✓" : "✗";
+        let matchColorClass = isCorrect ? "match-yes" : "match-no";
+        entry.innerHTML = `
+            <span class="time-col">${timeStr}</span>
+            <span class="issue-col">${issueShort}</span>
+            <span class="result-pill ${resultPillClass}">${actualResult}</span>
+            <span class="text-gray-400 text-[8px]">→</span>
+            <span class="result-pill ${actualResult===predText ? resultPillClass : 'pill-wait'}">${predText}</span>
+            <span class="${matchColorClass} text-[9px] font-bold">${matchMark}</span>
+        `;
+        historyDiv.prepend(entry);
+        while(historyDiv.children.length > 22) historyDiv.removeChild(historyDiv.lastChild);
+    }
+    
+    // timer session
+    function startTimerCountdown() {
+        setInterval(()=>{
+            if(!sessionIdTrack || systemLocked) return;
+            let stored = localStorage.getItem(sessionIdTrack);
+            if(!stored) return;
+            let elapsed = Math.floor((Date.now()-parseInt(stored))/1000);
+            let left = 3600 - elapsed;
+            if(left<=0) { forceWipe(); return; }
+            let min = Math.floor(left/60), sec = left%60;
+            if(timerSpan) timerSpan.innerText = `${min.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+        },1000);
+    }
+    
+    function forceWipe() {
+        systemLocked=true;
+        localStorage.clear();
+        sessionStorage.clear();
+        document.body.innerHTML="<div style='position:fixed; inset:0; background:#000; color:#ff3333; display:flex; align-items:center; justify-content:center;'>⏰ SESSION EXPIRED<br><span style='font-size:12px;'>reload page</span></div>";
+        setTimeout(()=>location.replace("about:blank"),800);
+    }
+    
+    function enableDraggable() {
+        let panel = document.getElementById("floatingWidget");
+        let header = document.getElementById("dragHandle");
+        if(!panel || !header) return;
+        let isDragging = false, dragOffsetX = 0, dragOffsetY = 0;
+        const onDragMove = (clientX, clientY) => {
+            if(!isDragging) return;
+            let newLeft = clientX - dragOffsetX;
+            let newTop = clientY - dragOffsetY;
+            let maxX = window.innerWidth - panel.offsetWidth;
+            let maxY = window.innerHeight - panel.offsetHeight;
+            newLeft = Math.min(Math.max(0, newLeft), maxX);
+            newTop = Math.min(Math.max(20, newTop), maxY);
+            panel.style.left = newLeft + "px";
+            panel.style.top = newTop + "px";
+            panel.style.right = "auto";
+            panel.style.bottom = "auto";
+        };
+        header.addEventListener("mousedown", (e) => {
+            if(e.target.closest('.toggle-btn')) return;
+            isDragging = true;
+            let rect = panel.getBoundingClientRect();
+            dragOffsetX = e.clientX - rect.left;
+            dragOffsetY = e.clientY - rect.top;
+            panel.style.cursor = "grabbing";
+            e.preventDefault();
+        });
+        window.addEventListener("mousemove", (e) => { onDragMove(e.clientX, e.clientY); });
+        window.addEventListener("mouseup", () => { isDragging = false; if(panel) panel.style.cursor = "grab"; });
+        header.addEventListener("touchstart", (e) => {
+            if(e.target.closest('.toggle-btn')) return;
+            let touch = e.touches[0];
+            let rect = panel.getBoundingClientRect();
+            dragOffsetX = touch.clientX - rect.left;
+            dragOffsetY = touch.clientY - rect.top;
+            isDragging = true;
+            e.preventDefault();
+        });
+        window.addEventListener("touchmove", (e) => {
+            if(!isDragging) return;
+            let touch = e.touches[0];
+            onDragMove(touch.clientX, touch.clientY);
+        });
+        window.addEventListener("touchend", () => { isDragging = false; });
+    }
+    
+    function toggleFormulaMode() {
+        if (activeFormulaMode === "ORIGINAL") {
+            activeFormulaMode = "V2MOD";
+            formulaSwitchBtn.classList.add("active");
+            if(currentFormulaLabelSpan) currentFormulaLabelSpan.innerText = "V2 MOD";
+            formulaMsgSpan.innerHTML = "⚡ V2 MOD ACTIVATED (Alpha-Beta)";
+        } else {
+            activeFormulaMode = "ORIGINAL";
+            formulaSwitchBtn.classList.remove("active");
+            if(currentFormulaLabelSpan) currentFormulaLabelSpan.innerText = "ORIGINAL";
+            formulaMsgSpan.innerHTML = "🔮 ORIGINAL PATTERN ENGINE";
+        }
+        updatePredictionFromActiveEngine();
+    }
+    
+    function authSystem() {
+        if(systemLocked) return;
+        let inputKey = document.getElementById("secretKey").value.trim();
+        if(inputKey !== REQUIRED_PASSWORD) { alert("⛔ ACCESS DENIED"); return; }
+        let sessionName = "_TRX_SESSION";
+        let nowMs = Date.now();
+        if(localStorage.getItem(sessionName) && (nowMs - parseInt(localStorage.getItem(sessionName))) > 3600000) { forceWipe(); return; }
+        if(!localStorage.getItem(sessionName)) localStorage.setItem(sessionName, nowMs);
+        sessionIdTrack = sessionName;
+        document.getElementById("loginOverlay").style.display = "none";
+        widget = document.getElementById("floatingWidget");
+        widget.style.display = "block";
+        showBtn = document.getElementById("showPanelFloatBtn");
+        
+        predictionSpan = document.getElementById("predictionValue");
+        formulaMsgSpan = document.getElementById("formulaMessage");
+        streakSpan = document.getElementById("streakNumber");
+        historyDiv = document.getElementById("historyLogContainer");
+        timerSpan = document.getElementById("sessionTimer");
+        hideBtn = document.getElementById("hidePanelBtn");
+        formulaSwitchBtn = document.getElementById("formulaSwitch");
+        currentFormulaLabelSpan = document.getElementById("currentFormulaLabel");
+        
+        if(hideBtn) hideBtn.addEventListener("click", ()=>{
+            widget.style.display = "none";
+            if(showBtn) showBtn.style.display = "flex";
+        });
+        if(showBtn) showBtn.addEventListener("click", ()=>{
+            widget.style.display = "block";
+            showBtn.style.display = "none";
+        });
+        
+        // Initialize both engines
+        originalEngine = new PredictionEngineOriginal();
+        originalEngine.setPredictionMode('auto');
+        originalEngine.setPatternLength(5);
+        v2Engine = new PredictionEngineV2();
+        activeFormulaMode = "ORIGINAL";
+        formulaSwitchBtn.classList.remove("active");
+        if(currentFormulaLabelSpan) currentFormulaLabelSpan.innerText = "ORIGINAL";
+        formulaSwitchBtn.addEventListener("click", toggleFormulaMode);
+        
+        startTimerCountdown();
+        fetchDrawData();
+        setInterval(() => { fetchDrawData(); }, 3200);
+        enableDraggable();
+    }
+    
+    window.onload = () => {
+        let style = document.createElement('style');
+        style.textContent = `.floating-panel { transition: none; }`;
+        document.head.appendChild(style);
+    };
+</script>
+</body>
+</html>
+```
