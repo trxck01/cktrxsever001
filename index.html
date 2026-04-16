@@ -1,5 +1,3 @@
-以下是您提供的HTML代码的完整版本，仅对UI进行了视觉美化，所有原有功能保持不变。
-
 ```html
 <!DOCTYPE html>
 <html lang="my">
@@ -16,7 +14,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; }
         body { background: #0a0e1a; overflow: hidden; font-family: 'Inter', system-ui, sans-serif; }
         
-        /* 新的动态玻璃效果 - 更精致 */
         .floating-panel {
             position: fixed;
             top: 70px;
@@ -125,6 +122,361 @@
             background: rgba(3, 6, 28, 0.9);
             padding: 8px 18px;
             border-radius: 60px;
+            margin-top: 14px;
+            font-weight: bold;
+            font-size: 11px;
+            border: 0.5px solid #ff7a7aaa;
+            backdrop-filter: blur(5px);
+        }
+        .toggle-btn {
+            background: #ff3b3b60;
+            border: 0.5px solid #ffa0a0;
+            border-radius: 40px;
+            padding: 4px 14px;
+            font-size: 8px;
+            font-weight: bold;
+            color: #ffe0e0;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+        .toggle-btn:active { transform: scale(0.94); background: #ff5555cc; }
+        .switch-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #0c102acc;
+            border-radius: 48px;
+            padding: 8px 16px;
+            margin-top: 14px;
+            border: 0.5px solid #ff7b7b99;
+        }
+        .switch-label {
+            font-size: 10px;
+            font-weight: 800;
+            color: #ffcfb0;
+            letter-spacing: 0.5px;
+        }
+        .formula-badge {
+            font-size: 8px;
+            background: #2e1f4a;
+            padding: 4px 12px;
+            border-radius: 50px;
+            color: #ffecb3;
+            font-weight: bold;
+            box-shadow: inset 0 0 2px #ffb347;
+        }
+        #formulaSwitch {
+            width: 48px;
+            height: 24px;
+            background: #3a2a2a;
+            border-radius: 40px;
+            border: none;
+            position: relative;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #formulaSwitch.active {
+            background: #ff5555;
+            box-shadow: 0 0 8px #ff3333;
+        }
+        #formulaSwitch::after {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background: #fff5e6;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 3px;
+            transition: 0.2s;
+        }
+        #formulaSwitch.active::after {
+            left: 25px;
+            background: #fff2cc;
+        }
+        #game_frame {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: 1;
+        }
+        .login-overlay {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, #0a0f1e, #010307);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-card {
+            background: rgba(12, 18, 32, 0.97);
+            border-radius: 64px;
+            padding: 40px 32px;
+            width: 340px;
+            border: 1px solid #ff6a6a;
+            text-align: center;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 30px 40px -15px black;
+        }
+        .key-field {
+            background: #050a16;
+            border: 1px solid #ff7f7f;
+            border-radius: 60px;
+            width: 100%;
+            padding: 14px;
+            color: #f0f0ff;
+            font-size: 1rem;
+            text-align: center;
+            outline: none;
+            letter-spacing: 1px;
+        }
+        .login-btn {
+            background: linear-gradient(95deg, #e13b3b, #a81515);
+            border-radius: 60px;
+            padding: 12px;
+            width: 100%;
+            font-weight: bold;
+            color: white;
+            margin-top: 26px;
+            cursor: pointer;
+            transition: 0.1s;
+            border: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        .login-btn:active { transform: scale(0.97); }
+        ::-webkit-scrollbar { width: 3px; background: #111520; }
+        ::-webkit-scrollbar-thumb { background: #ff7777; border-radius: 10px; }
+        .confidence-chip {
+            background: #10162ee6;
+            border-radius: 60px;
+            font-size: 9px;
+            padding: 5px 14px;
+            margin-top: 8px;
+            text-align: center;
+            color: #d6f0ff;
+            display: inline-block;
+            width: auto;
+            font-weight: 700;
+            border: 0.5px solid #5df2ff99;
+            backdrop-filter: blur(3px);
+        }
+        .copy-log-btn {
+            background: #1e2b4ecc;
+            border: 0.5px solid #88ccff;
+            border-radius: 40px;
+            padding: 6px 14px;
+            font-size: 9px;
+            font-weight: bold;
+            color: #f0f6ff;
+            cursor: pointer;
+            transition: 0.1s;
+            margin-top: 12px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(6px);
+        }
+        .copy-log-btn:active {
+            background: #3c7a9e;
+            transform: scale(0.97);
+            color: white;
+        }
+        .glow-text {
+            font-size: 7px;
+            background: linear-gradient(135deg, #ffb347, #ff6b6b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+        .issue-header {
+            font-size: 7px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<div id="loginOverlay" class="login-overlay">
+    <div class="login-card">
+        <div class="text-red-500 font-black text-3xl tracking-wider mb-1">CK TRX HACK V20</div>
+        <div class="text-gray-300 text-[11px] mb-6">10-PATTERN PURE ENGINE • ENHANCED V3</div>
+        <input type="password" id="secretKey" class="key-field" placeholder="✦ ENTER PASSWORD ✦">
+        <button class="login-btn" onclick="authSystem()">⚡ UNLOCK PURE V3 ENHANCED ⚡</button>
+        <div class="text-[8px] text-gray-400 mt-5">🔐 PASSWORD: Contact @DarkSize501</div>
+    </div>
+</div>
+
+<iframe id="game_frame" src="https://www.cklottery.club/#/register?invitationCode=44522535"></iframe>
+
+<div id="floatingWidget" class="floating-panel" style="display: none;">
+    <div class="panel-header" id="dragHandle">
+        <span class="font-bold text-[12px] tracking-wider text-red-200">⚡ TRX V3 • 10-PATTERN ENHANCED</span>
+        <div class="flex gap-2 items-center">
+            <span id="sessionTimer" class="text-[8px] text-gray-200 bg-black/50 px-2 py-0.5 rounded-full font-mono">∞</span>
+            <button id="hidePanelBtn" class="toggle-btn">HIDE</button>
+        </div>
+    </div>
+    <div class="panel-content">
+        <div id="predictionValue" class="text-center">——</div>
+        <div id="formulaMessage" class="info-badge">✨ SYNCING 10-PATTERN ENGINE...</div>
+        
+        <div class="switch-container">
+            <span class="switch-label">🌀 PREDICTION CORE</span>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <span class="formula-badge" id="currentFormulaLabel">V3 ENHANCED</span>
+                <button id="formulaSwitch" class="active"></button>
+            </div>
+        </div>
+        <div id="confidenceExtra" class="confidence-chip">🎯 CONFIDENCE: --%</div>
+        
+        <div class="streak-box">
+            <span class="text-gray-200 font-semibold">🔥 WIN STREAK</span>
+            <span id="streakNumber" class="text-yellow-300 font-mono text-xl font-black">0</span>
+        </div>
+        
+        <button id="copyLogsBtn" class="copy-log-btn">📋 COPY LAST 20 LOGS (TAB SEPARATED)</button>
+        
+        <div class="mt-3">
+            <div class="flex justify-between text-[8px] text-indigo-200 mb-1 px-1">
+                <span>📜 LIVE HISTORY (TIME / ISSUE)</span>
+                <span class="glow-text">10-PATTERN ACTIVE</span>
+            </div>
+            <div id="historyLogContainer" class="history-scroll">
+                <div class="text-center text-gray-400 text-[9px] py-3">⏳ awaiting first draw...</div>
+            </div>
+        </div>
+        <div class="text-[7px] text-center text-gray-400 mt-2">⚡ V3 ENHANCED • 10 Core Patterns | Multi-Layer Fallback</div>
+    </div>
+</div>
+
+<button id="showPanelFloatBtn" style="position:fixed; bottom:20px; right:20px; z-index:1001; background:#ff3b3bdd; border:none; border-radius:40px; padding:8px 20px; color:white; font-weight:bold; font-size:12px; cursor:pointer; display:none; backdrop-filter:blur(8px); box-shadow:0 4px 12px rgba(0,0,0,0.4);">📊 SHOW PREDICTOR</button>
+
+<script>
+    // ======================= ORIGINAL ENGINE (Legacy) =======================
+    class PredictionEngineOriginal {
+        constructor() {
+            this.history = [];
+        }
+        addNumber(num) { if(num<0||num>9) return false; this.history.unshift(num); if(this.history.length>25) this.history.pop(); return true; }
+        detectRepeatingPattern() {
+            if(this.history.length<4) return null;
+            let bestNext=null, bestConf=0;
+            for(let len=2; len<=Math.min(5, Math.floor(this.history.length/2)); len++) {
+                let pattern = this.history.slice(0,len);
+                let occurrences=[];
+                for(let i=0;i<=this.history.length-len;i++) {
+                    let match=true;
+                    for(let j=0;j<len;j++) if(this.history[i+j]!==pattern[j]) {match=false;break;}
+                    if(match) occurrences.push(i);
+                }
+                if(occurrences.length>=2){
+                    let nextNums=[];
+                    for(let pos of occurrences) if(pos+len<this.history.length) nextNums.push(this.history[pos+len]);
+                    if(nextNums.length){
+                        let freq={}; for(let n of nextNums) freq[n]=(freq[n]||0)+1;
+                        let maxCount=0, most=null;
+                        for(let [num,count] of Object.entries(freq)) if(count>maxCount){maxCount=count; most=parseInt(num);}
+                        let conf = maxCount/occurrences.length;
+                        if(conf>bestConf){ bestConf=conf; bestNext=most; }
+                    }
+                }
+            }
+            if(bestNext!==null) return {next:bestNext, confidence:Math.round(bestConf*100)};
+            return null;
+        }
+        predict() {
+            let pat=this.detectRepeatingPattern();
+            if(pat && pat.next!==null) {
+                let num=pat.next;
+                return {predictedNumber:num, type:num>=5?'BIG':'SMALL', confidence:pat.confidence, explanation:`Pattern repeat → ${num}`, needMoreData:false};
+            }
+            if(this.history.length<2) return {needMoreData:true, explanation:"Insufficient data"};
+            let lastNum=this.history[0];
+            let followers=[];
+            for(let i=0;i<this.history.length-1;i++) if(this.history[i]===lastNum) followers.push(this.history[i+1]);
+            if(followers.length){
+                let freq={}; for(let f of followers) freq[f]=(freq[f]||0)+1;
+                let max=0,most=null; for(let [num,count] of Object.entries(freq)) if(count>max){max=count; most=parseInt(num);}
+                if(most!==null) return {predictedNumber:most, type:most>=5?'BIG':'SMALL', confidence:65, explanation:`Frequency follow ${most}`, needMoreData:false};
+            }
+            return {needMoreData:true, explanation:"waiting for pattern"};
+        }
+    }
+    
+    // ======================= V3 ENHANCED ENGINE (Fixed - 10 Patterns with Dynamic Learning) =======================
+    class PredictionEngineV3Enhanced {
+        constructor() {
+            this.history = [];
+            this.digitHistory = [];
+            this.patternWeights = {};
+            this.patternSuccess = {};
+            this.consecutiveWins = 0;
+            this.consecutiveLosses = 0;
+            this.lastPrediction = null;
+            this.lastPredictionWasCorrect = false;
+            
+            this.patternsList = [
+                { name: "repeatStreak", fn: this.detectRepeatStreak.bind(this), weight: 1.0 },
+                { name: "alternate", fn: this.detectAlternate.bind(this), weight: 0.9 },
+                { name: "double", fn: this.detectDouble.bind(this), weight: 0.85 },
+                { name: "mixedTriplet", fn: this.detectMixedTriplet.bind(this), weight: 0.8 },
+                { name: "sequencePair", fn: this.detectSequencePair.bind(this), weight: 0.85 },
+                { name: "longRunBreak", fn: this.detectLongRunBreak.bind(this), weight: 0.9 },
+                { name: "breakAfterStreak", fn: this.detectBreakAfterStreak.bind(this), weight: 0.8 },
+                { name: "momentumShift", fn: this.detectMomentumShift.bind(this), weight: 0.85 },
+                { name: "gapAnalysis", fn: this.detectGapAnalysis.bind(this), weight: 0.75 },
+                { name: "trendContinuation", fn: this.detectTrendContinuation.bind(this), weight: 0.8 }
+            ];
+            
+            this.dailyLossLimit = 50;
+            this.dailyWinTarget = 100;
+            this.currentProfit = 0;
+            this.todayBets = 0;
+            this.todayDate = new Date().toDateString();
+            this.patternHistory = [];
+        }
+        
+        getOpposite(res) { return res === "BIG" ? "SMALL" : "BIG"; }
+        
+        addNumber(digit, result) {
+            if(digit < 0 || digit > 9) return false;
+            this.history.unshift({ result: result, digit: digit, time: Date.now() });
+            this.digitHistory.unshift(digit);
+            if(this.history.length > 40) this.history.pop();
+            if(this.digitHistory.length > 40) this.digitHistory.pop();
+            
+            if(this.lastPrediction) {
+                let wasCorrect = (this.lastPrediction === result);
+                this.lastPredictionWasCorrect = wasCorrect;
+                if(wasCorrect) {
+                    this.consecutiveWins++;
+                    this.consecutiveLosses = 0;
+                    this.currentProfit += 10;
+                    this.adjustPatternWeights(true);
+                } else {
+                    this.consecutiveWins = 0;
+                    this.consecutiveLosses++;
+                    this.currentProfit -= 10;
+                    this.adjustPatternWeights(false);
+                }
+            }
+            return true;
+        }
+        
+        adjustPatternWeights(correct) {
+            if(this.patternHistory.length === 0) return;
+            let lastPatterns = this.patternHistory[this.patternHistory.length - 1];
+            if(!lastPatterns) return;
+            for(let patternName of lastPatterns) {
+                if(!this.patternWeights[patternName]) this.patternWeights[patternName] = 1.0;
+                if(correct) {
+                    this.patternWeights[patternName] = Math.min(1.3, this.patternWeights[patternName] + 0.05);
+                    if(!this.patternSuccess[patternName]) this.patternSuccess[patternName] = { correct: 0, total: 0 };
+                    this.patternSucces            border-radius: 60px;
             margin-top: 14px;
             font-weight: bold;
             font-size: 11px;
@@ -731,7 +1083,7 @@
         }
     }
     
-    const REQUIRED_PASSWORD = "VVIPHACKALLTRX";
+    const REQUIRED_PASSWORD = "20262026";
     let systemLocked = false, sessionIdTrack = null;
     let lastIssueId = "", resultsHistory = [];
     let lastMadePrediction = null;
