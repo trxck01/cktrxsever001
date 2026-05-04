@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>TRX CK VIP HACK V20 | NEPTUNE HYBRID ENGINE</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&family=Inter:wght@300;400;600;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    :root {
+      --primary-glow: #ff4444;
+      --secondary-glow: #00f2ff;
+      --bg-deep: #03050b;
+      --glass-bg: rgba(10, 15, 30, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --gold: #ffd700;
+      --purple: #a855f7;
+    }
+
+    body {
+      background: var(--bg-deep);
+      background-image: 
+        radial-gradient(ellipse at 20% 50%, rgba(255, 70, 70, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(0, 242, 255, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
+      overflow: hidden;
+      font-family: 'Inter', system-ui, sans-serif;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    /* Animated background particles */
+    .bg-particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: white;
+      animation: floatUp linear infinite;
+      opacity: 0;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.2; }
+      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+
+    /* Main floating panel - Premium Glassmorphism */
+    .floating-panel {
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      width: 380px;
+      max-height: 90vh;
+      background: var(--glass-bg);
+      backdrop-filter: blur(30px) saturate(180%);
+      -webkit-backdrop-filter: blur(30px) saturate(180%);
+      border-radius: 32px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 
+        0 25px 60px -20px rgba(0,0,0,0.9),
+        0 0 0 1px rgba(255,255,255,0.05) inset,
+        0 0 80px -30px rgba(255, 70, 70, 0.2);
+      z-index: 999;
+      cursor: grab;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+    .floating-panel:active { 
+      cursor: grabbing; 
+    }
+    .floating-panel:hover {
+      box-shadow: 
+        0 30px 70px -20px rgba(0,0,0,0.95),
+        0 0 0 1px rgba(255,255,255,0.08) inset,
+        0 0 100px -20px rgba(255, 70, 70, 0.3);
+    }
+
+    /* Glowing top accent line */
+    .panel-accent {
+      position: absolute;
+      top: 0;
+      left: 20px;
+      right: 20px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255,100,100,0.8), rgba(255,180,100,0.6), rgba(255,100,100,0.8), transparent);
+      border-radius: 2px;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .panel-header {
+      padding: 20px 22px 14px 22px;
+      cursor: grab;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+    .panel-header .title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #ff8888, #ff4444, #ff6666);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: none;
+    }
+    .panel-content {
+      padding: 0 20px 24px 20px;
+      cursor: auto;
+    }
+
+    /* Prediction Value - Hero element */
+    .prediction-wrapper {
+      position: relative;
+      margin: 16px 0 12px;
+      text-align: center;
+    }
+    .prediction-ring {
+      position: absolute;
+      inset: -20px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      animation: rotateGlow 4s linear infinite;
+      opacity: 0.3;
+    }
+    @keyframes rotateGlow {
+      0% { border-color: transparent; border-top-color: rgba(255,100,100,0.3); }
+      50% { border-color: transparent; border-bottom-color: rgba(168,85,247,0.3); }
+      100% { border-color: transparent; border-top-color: rgba(255,100,100,0.3); }
+    }
+    #predictionValue {
+      font-size: 5rem;
+      font-weight: 900;
+      text-align: center;
+      letter-spacing: 4px;
+      font-family: 'Orbitron', sans-serif;
+      margin: 8px 0 4px;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .big-glow { 
+      color: #ffd700 !important; 
+      text-shadow: 0 0 40px rgba(255, 170, 68, 0.6), 0 0 80px rgba(255, 136, 34, 0.4), 0 0 120px rgba(255, 200, 50, 0.3);
+      animation: pulseBig 2s ease-in-out infinite;
+    }
+    .small-glow { 
+      color: #c084fc !important; 
+      text-shadow: 0 0 40px rgba(168, 85, 247, 0.6), 0 0 80px rgba(139, 92, 246, 0.4), 0 0 120px rgba(167, 139, 250, 0.3);
+      animation: pulseSmall 2s ease-in-out infinite;
+    }
+    .wait-glow { 
+      color: #94a3b8 !important; 
+      text-shadow: 0 0 20px rgba(148, 163, 184, 0.3);
+    }
+    .cool-glow {
+      color: #ffcc99 !important;
+      text-shadow: 0 0 30px rgba(255, 153, 51, 0.5), 0 0 60px rgba(255, 102, 0, 0.3);
+      animation: pulseCool 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseBig {
+      0%, 100% { text-shadow: 0 0 40px rgba(255,170,68,0.6), 0 0 80px rgba(255,136,34,0.4); }
+      50% { text-shadow: 0 0 60px rgba(255,200,100,0.8), 0 0 100px rgba(255,170,68,0.6), 0 0 140px rgba(255,200,50,0.4); }
+    }
+    @keyframes pulseSmall {
+      0%, 100% { text-shadow: 0 0 40px rgba(168,85,247,0.6), 0 0 80px rgba(139,92,246,0.4); }
+      50% { text-shadow: 0 0 60px rgba(192,132,252,0.8), 0 0 100px rgba(168,85,247,0.6), 0 0 140px rgba(167,139,250,0.4); }
+    }
+    @keyframes pulseCool {
+      0%, 100% { text-shadow: 0 0 30px rgba(255,153,51,0.5), 0 0 60px rgba(255,102,0,0.3); }
+      50% { text-shadow: 0 0 50px rgba(255,180,100,0.7), 0 0 80px rgba(255,136,34,0.5); }
+    }
+
+    /* Status badges */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50px;
+      padding: 6px 14px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00ff88;
+      box-shadow: 0 0 8px #00ff88;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* Mode toggle switch */
+    .switch-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(0,0,0,0.4);
+      border-radius: 50px;
+      padding: 12px 20px;
+      margin-top: 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+    }
+    .mode-label {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #94a3b8;
+    }
+    #formulaSwitch {
+      width: 56px;
+      height: 28px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.15);
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    #formulaSwitch.active {
+      background: linear-gradient(135deg, #ff4444, #ff6666);
+      border-color: rgba(255,100,100,0.5);
+      box-shadow: 0 0 20px rgba(255,68,68,0.4);
+    }
+    #formulaSwitch::after {
+      content: "";
+      width: 22px;
+      height: 22px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 3px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    #formulaSwitch.active::after { 
+      left: 29px; 
+      background: #fff5e6;
+    }
+
+    /* History section */
+    .history-scroll {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-top: 16px;
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 10px;
+      background: rgba(0,0,0,0.45);
+      border-radius: 24px;
+      padding: 12px 10px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .history-entry {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      margin: 2px 0;
+      border-radius: 16px;
+      transition: all 0.2s ease;
+      gap: 8px;
+      background: rgba(255,255,255,0.01);
+    }
+    .history-entry:hover { 
+      background: rgba(255,255,255,0.04); 
+      transform: translateX(2px);
+    }
+    .time-col { color: #64748b; min-width: 55px; font-size: 8px; font-weight: 600; }
+    .issue-col { 
+      color: #ffcf8a; 
+      background: rgba(255,170,68,0.1); 
+      padding: 3px 10px; 
+      border-radius: 20px; 
+      font-size: 8px; 
+      font-weight: 700; 
+    }
+    .result-pill { 
+      padding: 4px 12px; 
+      border-radius: 20px; 
+      font-weight: 800; 
+      font-size: 8px; 
+    }
+    .pill-big { 
+      background: rgba(255,170,68,0.15); 
+      color: #ffd700; 
+      border: 1px solid rgba(255,170,68,0.4); 
+    }
+    .pill-small { 
+      background: rgba(168,85,247,0.15); 
+      color: #c084fc; 
+      border: 1px solid rgba(168,85,247,0.4); 
+    }
+    .match-yes { color: #00ff88; font-weight: bold; }
+    .match-no { color: #ff6b6b; }
+
+    /* Streak counter */
+    .streak-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.4);
+      padding: 12px 20px;
+      border-radius: 50px;
+      margin-top: 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .streak-fire {
+      font-size: 20px;
+      animation: bounce 1s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    /* Buttons */
+    .btn-glass {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 40px;
+      padding: 10px 14px;
+      font-size: 9px;
+      font-weight: 700;
+      color: #cbd5e1;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(10px);
+      text-transform: uppercase;
+    }
+    .btn-glass:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.2);
+      color: white;
+    }
+    .btn-glass:active { 
+      transform: scale(0.96); 
+    }
+
+    /* Confidence meter */
+    .confidence-meter {
+      width: 100%;
+      height: 3px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      margin-top: 12px;
+      overflow: hidden;
+    }
+    .confidence-fill {
+      height: 100%;
+      border-radius: 10px;
+      transition: width 0.8s ease, background 0.5s ease;
+      background: linear-gradient(90deg, #ff4444, #ffd700);
+    }
+
+    /* Login screen */
+    .login-overlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, #0a0f1e 0%, #010307 100%);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+    }
+    .login-card {
+      background: rgba(12, 18, 32, 0.9);
+      border-radius: 48px;
+      padding: 48px 36px;
+      width: 380px;
+      border: 1px solid rgba(255,100,100,0.4);
+      text-align: center;
+      backdrop-filter: blur(30px);
+      box-shadow: 0 40px 80px -20px rgba(0,0,0,0.8), 0 0 60px rgba(255,70,70,0.1);
+    }
+    .key-field {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,100,100,0.4);
+      border-radius: 50px;
+      width: 100%;
+      padding: 16px 20px;
+      color: #f0f0ff;
+      font-size: 1rem;
+      text-align: center;
+      outline: none;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+    }
+    .key-field:focus {
+      border-color: #ff6666;
+      box-shadow: 0 0 20px rgba(255,100,100,0.2);
+    }
+    .login-btn {
+      background: linear-gradient(135deg, #e13b3b, #a81515);
+      border-radius: 50px;
+      padding: 14px;
+      width: 100%;
+      font-weight: 700;
+      color: white;
+      margin-top: 24px;
+      cursor: pointer;
+      border: none;
+      font-size: 14px;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+    .login-btn:hover {
+      box-shadow: 0 10px 30px rgba(255,50,50,0.4);
+      transform: translateY(-1px);
+    }
+    .login-btn:active { transform: scale(0.97); }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+    .button-group { display: flex; gap: 8px; margin-top: 12px; }
+    .button-group .btn-glass { flex: 1; }
+
+    #game_frame {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Background particles -->
+<div class="bg-particles" id="particles"></div>
+
+<div id="loginOverlay" class="login-overlay">
+  <div class="login-card">
+    <div style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; color: #ff5555; letter-spacing: 3px; margin-bottom: 4px;">NEPTUNE</div>
+    <div style="font-size: 11px; color: #94a3b8; margin-bottom: 32px; letter-spacing: 3px; text-transform: uppercase;">TRX Hybrid Engine v3.1</div>
+    <input type="password" id="secretKey" class="key-field" placeholder="✦ ENTER ACCESS KEY ✦">
+    <button class="login-btn" onclick="authSystem()">⚡ Initialize Engine ⚡</button>
+    <div style="font-size: 8px; color: #64748b; margin-top: 24px;">🔐 SECURE CONNECTION • @DarkSize501</div>
+  </div>
+</div>
+
+<iframe id="game_frame" src="https://www.cklottery.club/#/register?invitationCode=44522535"></iframe>
+
+<div id="floatingWidget" class="floating-panel" style="display: none;">
+  <div class="panel-accent"></div>
+  <div class="panel-header" id="dragHandle">
+    <div>
+      <span class="title">⚡ NEPTUNE TRX</span>
+    </div>
+    <div class="flex gap-2 items-center">
+      <span class="status-badge">
+        <span class="status-dot"></span>
+        <span id="sessionTimer" style="color: #94a3b8;">LIVE</span>
+      </span>
+      <button id="hidePanelBtn" class="btn-glass" style="padding: 6px 12px; font-size: 8px;">HIDE</button>
+    </div>
+  </div>
+
+  <div class="panel-content">
+    <!-- Prediction Display -->
+    <div class="prediction-wrapper">
+      <div class="prediction-ring"></div>
+      <div id="predictionValue" class="text-center">——</div>
+    </div>
+    
+    <!-- Confidence Meter -->
+    <div class="confidence-meter">
+      <div id="confidenceFill" class="confidence-fill" style="width: 0%;"></div>
+    </div>
+    
+    <div id="formulaMessage" class="status-badge" style="width: 100%; justify-content: center; margin-top: 12px; padding: 8px;">
+      ✨ INITIALIZING HYBRID ENGINE...
+    </div>
+
+    <!-- Mode Switch -->
+    <div class="switch-container">
+      <span class="mode-label">🧠 Prediction Core</span>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span id="currentFormulaLabel" style="font-size: 9px; font-weight: 700; color: #ff8888; letter-spacing: 1px;">HYBRID V3</span>
+        <button id="formulaSwitch" class="active"></button>
+      </div>
+    </div>
+
+    <!-- Cooldown Indicator -->
+    <div id="coolModeIndicator" style="display: none; text-align: center; margin-top: 8px;">
+      <span style="background: rgba(255,136,0,0.2); border: 1px solid rgba(255,170,51,0.5); color: #ffddbb; padding: 4px 12px; border-radius: 20px; font-size: 8px; font-weight: 700;">⚠️ COOLDOWN MODE ACTIVE</span>
+    </div>
+
+    <!-- Streak -->
+    <div class="streak-box">
+      <span style="color: #94a3b8; font-size: 10px; font-weight: 700; letter-spacing: 1px;">🔥 WIN STREAK</span>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="streak-fire">🔥</span>
+        <span id="streakNumber" style="font-family: 'Orbitron', sans-serif; color: #ffd700; font-size: 2rem; font-weight: 900;">0</span>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="button-group">
+      <button id="copyLast20Btn" class="btn-glass">📋 LAST 20</button>
+      <button id="copyAllLogsBtn" class="btn-glass">📚 COPY ALL</button>
+    </div>
+
+    <!-- History Log -->
+    <div style="margin-top: 16px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding: 0 4px;">
+        <span style="font-size: 8px; color: #64748b; font-weight: 700; letter-spacing: 1px;">📜 LIVE HISTORY</span>
+        <span style="font-size: 7px; color: #ff8888; font-weight: 700;">10-PATTERN + NEURAL</span>
+      </div>
+      <div id="historyLogContainer" class="history-scroll">
+        <div style="text-align: center; color: #64748b; font-size: 10px; padding: 20px;">⏳ AWAITING SIGNAL...</div>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 12px; font-size: 7px; color: #475569; letter-spacing: 1px;">
+      ⚡ NEPTUNE V3.1 • ANTI-FALLACY • NEURAL CONSENSUS
+    </div>
+  </div>
+</div>
+
+<button id="showPanelFloatBtn" style="position:fixed; bottom:24px; right:24px; z-index:1001; background:linear-gradient(135deg, #ff4444, #cc3333); border:none; border-radius:50px; padding:12px 24px; color:white; font-weight:700; font-size:11px; cursor:pointer; display:none; backdrop-filter:blur(10px); box-shadow:0 8px 24px rgba(255,50,50,0.4); letter-spacing:1px; transition:all 0.3s ease;">📊 SHOW PANEL</button>
+
+<script>
+  // ======================= BACKGROUND PARTICLES =======================
+  function createParticles() {
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      const size = Math.random() * 3 + 1;
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDuration = Math.random() * 15 + 10 + 's';
+      particle.style.animationDelay = Math.random() * 10 + 's';
+      particle.style.background = `rgba(255,255,255,${Math.random() * 0.3 + 0.1})`;
+      container.appendChild(particle);
+    }
+  }
+  createParticles();
+
+  // ======================= ORIGINAL ENGINE =======================
+  class PredictionEngineOriginal {
+    constructor() { this.history = []; }
+    addNumber(num) { if(num<0||num>9) return false; this.history.unshift(num); if(this.history.length>25) this.history.pop(); return true; }
+    detectRepeatingPattern() {
+      if(this.history.length<4) return null;
+      let bestNext=null, bestConf=0;
+      for(let len=2; len<=Math.min(5, Math.floor(this.history.length/2)); len++) {
+        let pattern = this.history.slice(0,len);
+        let occurrences=[];
+        for(let i=0;i<=this.history.length-len;i++) {
+          let match=true;
+          for(let j=0;j<len;j++) if(this.history[i+j]!==pattern[j]) {match=false;break;}
+          if(match) occurrences.push(i);
+        }
+        if(occurrences.length>=2){
+          let nextNums=[];
+          for(let pos of occurrences) if(pos+len<this.history.length) nextNums.push(this.history[pos+len]);
+          if(nextNums.length){
+            let freq={}; for(let n of nextNums) freq[n]=(freq[n]||0)+1;
+            let maxCount=0, most=null;
+            for(let [num,count] of Object.entries(freq)) if(count>maxCount){maxCount=count; most=parseInt(num);}
+            let conf = maxCount/occurrences.length;
+            if(conf>bestConf){ bestConf=conf; bestNext=most; }
+          }
+        }
+      }
+      if(bestNext!==null) return {next:bestNext, confidence:Math.round(bestConf*100)};
+      return null;
+    }
+    predict() {
+      let pat=this.detectRepeatingPattern();
+      if(pat && pat.next!==null) {
+        let num=pat.next;
+        return {predictedNumber:num, type:num>=5?'BIG':'SMALL', confidence:pat.confidence, explanation:`Pattern → ${num}`, needMoreData:false};
+      }
+      if(this.history.length<2) return {needMoreData:true, explanation:"Insufficient data"};
+      let lastNum=this.history[0];
+      let followers=[];
+      for(let i=0;i<this.history.length-1;i++) if(this.history[i]===lastNum) followers.push(this.history[i+1]);
+      if(followers.length){
+        let freq={}; for(let f of followers) freq[f]=(freq[f]||0)+1;
+        let max=0,most=null; for(let [num,count] of Object.entries(freq)) if(count>max){max=count; most=parseInt(num);}
+        if(most!==null) return {predictedNumber:most, type:most>=5?'BIG':'SMALL', confidence:65, explanation:`Freq follow ${most}`, needMoreData:false};
+      }
+      return {needMoreData:true, explanation:"waiting for pattern"};
+    }
+  }
+
+  // ======================= V3 OPTIMIZED ENGINE =======================
+  class PredictionEngineV3Optimized {
+    constructor() {
+      this.history = [];
+      this.digitHistory = [];
+      this.patternWeights = {};
+      this.consecutiveWins = 0;
+      this.consecutiveLosses = 0;
+      this.lastPrediction = null;
+      this.isCooldownMode = false;
+      this.patternsList = [
+        { name: "repeatStreak", fn: this.detectRepeatStreak.bind(this), weight: 1.0 },
+        { name: "alternate", fn: this.detectAlternate.bind(this), weight: 0.9 },
+        { name: "double", fn: this.detectDouble.bind(this), weight: 0.85 },
+        { name: "mixedTriplet", fn: this.detectMixedTriplet.bind(this), weight: 0.8 },
+        { name: "sequencePair", fn: this.detectSequencePair.bind(this), weight: 0.85 },
+        { name: "longRunBreak", fn: this.detectLongRunBreak.bind(this), weight: 0.7 },
+        { name: "breakAfterStreak", fn: this.detectBreakAfterStreak.bind(this), weight: 0.75 },
+        { name: "momentumShift", fn: this.detectMomentumShift.bind(this), weight: 0.85 },
+        { name: "gapAnalysis", fn: this.detectGapAnalysis.bind(this), weight: 0.7 },
+        { name: "trendContinuation", fn: this.detectTrendContinuation.bind(this), weight: 0.9 }
+      ];
+      this.patternHistory = [];
+    }
+    getOpposite(res) { return res === "BIG" ? "SMALL" : "BIG"; }
+    addNumber(digit, result) {
+      if(digit < 0 || digit > 9) return false;
+      this.history.unshift({ result, digit, time: Date.now() });
+      this.digitHistory.unshift(digit);
+      if(this.history.length > 40) this.history.pop();
+      if(this.digitHistory.length > 40) this.digitHistory.pop();
+      if(this.lastPrediction) {
+        let correct = (this.lastPrediction === result);
+        if(correct) { this.consecutiveWins++; this.consecutiveLosses = 0; this.isCooldownMode = false; }
+        else { this.consecutiveWins = 0; this.consecutiveLosses++; this.isCooldownMode = this.consecutiveLosses >= 2; }
+      }
+      return true;
+    }
+    detectRepeatStreak() {
+      if(this.history.length < 4) return null;
+      let r = this.history.slice(0,4).map(h=>h.result);
+      if(r[0]===r[1]&&r[1]===r[2]) return { prediction: r[0]===r[3]?this.getOpposite(r[0]):r[0], confidence: 62 };
+      return null;
+    }
+    detectAlternate() {
+      if(this.history.length < 5) return null;
+      let r = this.history.slice(0,5).map(h=>h.result);
+      if(r.every((v,i,a)=>i===0||v!==a[i-1])) return { prediction: this.getOpposite(r[0]), confidence: 68 };
+      return null;
+    }
+    detectDouble() {
+      if(this.history.length < 3) return null;
+      let r = this.history.slice(0,3).map(h=>h.result);
+      if(r[1]===r[2]&&r[0]!==r[1]) return { prediction: this.getOpposite(r[1]), confidence: 65 };
+      return null;
+    }
+    detectMixedTriplet() {
+      if(this.history.length < 4) return null;
+      let r = this.history.slice(0,4).map(h=>h.result);
+      if(r[0]!==r[1]&&r[1]!==r[2]&&r[0]===r[2]) return { prediction: r[1], confidence: 64 };
+      return null;
+    }
+    detectSequencePair() {
+      if(this.history.length < 4) return null;
+      let r = this.history.slice(0,4).map(h=>h.result);
+      if(r[0]===r[1]&&r[2]===r[3]&&r[0]!==r[2]) return { prediction: r[2], confidence: 67 };
+      return null;
+    }
+    detectLongRunBreak() {
+      if(this.history.length < 6) return null;
+      let type = this.history[0].result, len = 1;
+      for(let i=1;i<this.history.length;i++) { if(this.history[i].result===type) len++; else break; }
+      if(len>=5) return { prediction: this.getOpposite(type), confidence: Math.min(58, 50+len) };
+      return null;
+    }
+    detectBreakAfterStreak() {
+      if(this.history.length < 4) return null;
+      let r = this.history.slice(0,4).map(h=>h.result);
+      if(r.every(v=>v===r[0])) return { prediction: this.getOpposite(r[0]), confidence: 60 };
+      return null;
+    }
+    detectMomentumShift() {
+      if(this.history.length < 6) return null;
+      let big = this.history.slice(0,6).filter(h=>h.result==="BIG").length;
+      if(big>=5) return { prediction: "SMALL", confidence: 62 };
+      if(big<=1) return { prediction: "BIG", confidence: 62 };
+      return null;
+    }
+    detectGapAnalysis() {
+      if(this.history.length < 8) return null;
+      let lastBig = this.history.slice(0,10).findIndex(h=>h.result==="BIG");
+      let lastSmall = this.history.slice(0,10).findIndex(h=>h.result==="SMALL");
+      if(lastBig > lastSmall+3) return { prediction: "BIG", confidence: 58 };
+      if(lastSmall > lastBig+3) return { prediction: "SMALL", confidence: 58 };
+      return null;
+    }
+    detectTrendContinuation() {
+      if(this.history.length < 4) return null;
+      let big = this.history.slice(0,4).filter(h=>h.result==="BIG").length;
+      if(big>=3) return { prediction: "BIG", confidence: 60 };
+      if(big<=1) return { prediction: "SMALL", confidence: 60 };
+      return null;
+    }
+    calculateWeightedPrediction() {
+      let scores = { BIG:0, SMALL:0 }, active=[];
+      for(let p of this.patternsList) {
+        let res = p.fn();
+        if(res && res.prediction) {
+          let w = this.patternWeights[p.name] || p.weight;
+          scores[res.prediction] += res.confidence * w;
+          active.push(res);
+        }
+      }
+      if(active.length===0) return null;
+      let total = scores.BIG + scores.SMALL;
+      let winner = scores.BIG > scores.SMALL ? "BIG" : "SMALL";
+      let conf = Math.round((scores[winner]/total)*100);
+      return { prediction: winner, confidence: Math.min(78, conf), pattern: active[0].pattern || "ensemble" };
+    }
+    predict() {
+      if(this.history.length < 4) return { needMoreData: true };
+      if(this.isCooldownMode && this.history.length) {
+        return { type: this.history[0].result, confidence: 48, explanation: "COOLDOWN", modeUsed: "COOLDOWN" };
+      }
+      let w = this.calculateWeightedPrediction();
+      if(w) {
+        this.lastPrediction = w.prediction;
+        return { type: w.prediction, confidence: w.confidence, explanation: w.pattern, modeUsed: "V3" };
+      }
+      let last = this.history[0].result;
+      return { type: last, confidence: 52, explanation: "fallback", modeUsed: "V3" };
+    }
+    getCooldownStatus() { return this.isCooldownMode; }
+  }
+
+  // ======================= NEURAL ENGINE =======================
+  class NeuralEngine {
+    constructor() {
+      this.strategies = [
+        { id: 'ma', fn: (list) => (list.slice(0,5).reduce((a,b)=>a+b.number,0)/5) > 4.5 ? 'SMALL' : 'BIG' },
+        { id: 'wma', fn: (list) => ((list[0].number*3 + list[1].number*2 + list[2].number*1)/6) > 4.5 ? 'SMALL' : 'BIG' },
+        { id: 'rev', fn: (list) => list.slice(0,3).filter(x=>x.number>=5).length >= 2 ? 'SMALL' : 'BIG' },
+        { id: 'mom', fn: (list) => list[0].number > list[1].number ? 'BIG' : 'SMALL' }
+      ];
+    }
+    predict(drawList) {
+      if(!drawList || drawList.length < 6) return null;
+      const votes = { BIG: 0, SMALL: 0 };
+      this.strategies.forEach(s => votes[s.fn(drawList)]++);
+      const final = votes.BIG >= votes.SMALL ? 'BIG' : 'SMALL';
+      const confidence = Math.round((Math.max(votes.BIG, votes.SMALL) / 4) * 100);
+      return { type: final, confidence: confidence, explanation: `Neural (${votes.BIG}B/${votes.SMALL}S)` };
+    }
+  }
+
+  // ======================= MAIN APP =======================
+  const REQUIRED_PASSWORD = "20262026";
+  let systemLocked = false;
+  let lastIssueId = "", lastMadePrediction = null, currentStreak = 0;
+  let originalEngine, v3OptimizedEngine, neuralEngine;
+  let activeFormulaMode = "HYBRID";
+  let widget, historyDiv, predictionSpan, formulaMsgSpan, streakSpan, timerSpan;
+  let formulaSwitchBtn, currentFormulaLabelSpan, confidenceFill, coolModeIndicator;
+  let showBtn, hideBtn;
+  let lastDrawCache = null;
+  let structuredLogEntries = [];
+
+  async function fetchDrawDataDirect() {
+    const targetUrl = "https://draw.ar-lottery01.com/TrxWinGo/TrxWinGo_1M/GetHistoryIssuePage.json";
+    const proxyList = [ "https://api.allorigins.win/get?url=", "https://corsproxy.io/?", "https://api.codetabs.com/v1/proxy?quest=" ];
+    for (let i = 0; i < proxyList.length; i++) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+        const proxyUrl = proxyList[i] + encodeURIComponent(targetUrl);
+        const response = await fetch(proxyUrl, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (!response.ok) continue;
+        const jsonData = await response.json();
+        let parsed = (i === 0 && jsonData.contents) ? JSON.parse(jsonData.contents) : jsonData;
+        if (parsed?.data?.list?.length > 0) {
+          lastDrawCache = parsed.data.list;
+          return parsed.data.list;
+        }
+      } catch(e) { continue; }
+    }
+    return lastDrawCache?.length ? lastDrawCache : generateMockDrawData();
+  }
+
+  function generateMockDrawData() {
+    const mock = [];
+    const now = new Date();
+    for (let i = 0; i < 25; i++) {
+      const num = Math.floor(Math.random() * 10);
+      mock.push({ issueNumber: "TRX"+Date.now()+i, number: num.toString(), openTime: new Date(now - i*60000).toISOString() });
+    }
+    return mock;
+  }
+
+  function addHistoryLog(issueShort, actual, predicted, isCorrect, timestamp) {
+    if(!historyDiv) return;
+    if(historyDiv.children.length===1 && historyDiv.children[0].innerText.includes("AWAITING")) historyDiv.innerHTML="";
+    const entry = document.createElement("div");
+    entry.className = "history-entry";
+    const timeStr = timestamp || new Date().toLocaleTimeString([], { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+    const resultClass = actual==="BIG" ? "pill-big" : "pill-small";
+    const predClass = predicted==="BIG" ? "pill-big" : (predicted==="SMALL"?"pill-small":"pill-wait");
+    entry.innerHTML = `<span class="time-col">${timeStr}</span><span class="issue-col">${issueShort}</span><span class="result-pill ${resultClass}">${actual}</span><span style="color:#64748b;">→</span><span class="result-pill ${predClass}">${predicted||"?"}</span><span class="${isCorrect?'match-yes':'match-no'}" style="font-weight:700;">${isCorrect?'✓':'✗'}</span>`;
+    historyDiv.prepend(entry);
+    while(historyDiv.children.length > 50) historyDiv.removeChild(historyDiv.lastChild);
+    structuredLogEntries.unshift({ timeStr, issueShort, actual, predicted: predicted||"?", correct: isCorrect?'✓':'✗' });
+    if(structuredLogEntries.length > 100) structuredLogEntries.pop();
+  }
+
+  function copyLast20Logs() {
+    const recent = structuredLogEntries.slice(0,20);
+    if(!recent.length) { alert("No data"); return; }
+    let text = "TIME\tISSUE\tRESULT\tPREDICTION\tSTATUS\n" + recent.map(e=>`${e.timeStr}\t${e.issueShort}\t${e.actual}\t${e.predicted}\t${e.correct}`).join("\n");
+    navigator.clipboard.writeText(text).then(()=>{
+      const btn = document.getElementById("copyLast20Btn");
+      if(btn) { const t=btn.innerText; btn.innerText="✅ COPIED!"; setTimeout(()=>btn.innerText=t,1200); }
+    });
+  }
+
+  function copyAllLogs() {
+    if(!structuredLogEntries.length) { alert("No data"); return; }
+    const wins = structuredLogEntries.filter(e=>e.correct==='✓').length;
+    let text = "TIME\tISSUE\tRESULT\tPREDICTION\tSTATUS\n" + structuredLogEntries.map(e=>`${e.timeStr}\t${e.issueShort}\t${e.actual}\t${e.predicted}\t${e.correct}`).join("\n");
+    text += `\n\n========== SUMMARY ==========\nTOTAL: ${structuredLogEntries.length}\nWINS: ${wins}\nRATE: ${((wins/structuredLogEntries.length)*100).toFixed(1)}%\n=============================`;
+    navigator.clipboard.writeText(text).then(()=>{
+      const btn = document.getElementById("copyAllLogsBtn");
+      if(btn) { const t=btn.innerText; btn.innerText="✅ ALL COPIED!"; setTimeout(()=>btn.innerText=t,1200); }
+    });
+  }
+
+  function getHybridPrediction(drawList) {
+    const v3Result = v3OptimizedEngine.predict();
+    const neuralResult = neuralEngine.predict(drawList);
+    
+    let v3Type = v3Result?.type || null;
+    let v3Conf = v3Result?.confidence || 0;
+    let neuralType = neuralResult?.type || null;
+    let neuralConf = neuralResult?.confidence || 0;
+    
+    if (v3Type && neuralType && v3Type === neuralType) {
+      return {
+        type: v3Type,
+        confidence: Math.round((v3Conf * 0.55 + neuralConf * 0.45)),
+        explanation: `HYBRID agree: ${v3Type}`,
+        modeUsed: "HYBRID-CONSENSUS"
+      };
+    }
+    
+    if (v3Type && !neuralType) return { ...v3Result, modeUsed: "V3-FALLBACK" };
+    if (!v3Type && neuralType) return { ...neuralResult, modeUsed: "NEURAL-FALLBACK" };
+    
+    if (v3Type && neuralType && v3Type !== neuralType) {
+      const v3Weighted = v3Conf * 0.6;
+      const neuralWeighted = neuralConf * 0.4;
+      if (v3Weighted >= neuralWeighted) {
+        return { type: v3Type, confidence: Math.round(v3Weighted), explanation: "HYBRID (V3)", modeUsed: "HYBRID-V3" };
+      } else {
+        return { type: neuralType, confidence: Math.round(neuralWeighted), explanation: "HYBRID (Neural)", modeUsed: "HYBRID-NEURAL" };
+      }
+    }
+    
+    return v3Result || neuralResult || { type: "BIG", confidence: 50, explanation: "default" };
+  }
+
+  function updatePredictionUI(engineResult, drawList = null) {
+    if (!predictionSpan) return;
+    
+    if (!engineResult || engineResult.needMoreData || !engineResult.type) {
+      predictionSpan.innerText = "⏳";
+      predictionSpan.className = "wait-glow text-center";
+      formulaMsgSpan.innerHTML = "✨ Building patterns...";
+      if(confidenceFill) confidenceFill.style.width = "0%";
+      return;
+    }
+
+    const pred = engineResult.type;
+    predictionSpan.innerText = pred;
+    
+    if (engineResult.modeUsed?.includes("COOLDOWN")) {
+      predictionSpan.className = "cool-glow text-center";
+    } else if (pred === "BIG") {
+      predictionSpan.className = "big-glow text-center";
+    } else {
+      predictionSpan.className = "small-glow text-center";
+    }
+
+    const conf = engineResult.confidence || 65;
+    if(confidenceFill) confidenceFill.style.width = conf + "%";
+    
+    const modeTag = engineResult.modeUsed || "V3";
+    formulaMsgSpan.innerHTML = `🧠 ${modeTag} | ${pred} | ${engineResult.explanation?.substring(0,35) || "active"}`;
+    
+    if(coolModeIndicator) {
+      coolModeIndicator.style.display = v3OptimizedEngine?.getCooldownStatus() ? "block" : "none";
+    }
+    
+    lastMadePrediction = pred;
+    if(streakSpan) streakSpan.innerText = currentStreak;
+  }
+
+  async function fetchAndProcess() {
+    if(systemLocked) return;
+    try {
+      const drawList = await fetchDrawDataDirect();
+      if (!drawList || drawList.length === 0) return;
+
+      const latestIssue = drawList[0].issueNumber;
+      const latestNum = parseInt(drawList[0].number) || 5;
+      const currentResult = latestNum >= 5 ? "BIG" : "SMALL";
+
+      if (latestIssue !== lastIssueId) {
+        if (lastIssueId !== "") {
+          originalEngine.addNumber(latestNum);
+          v3OptimizedEngine.addNumber(latestNum, currentResult);
+          
+          const isMatch = (lastMadePrediction === currentResult);
+          currentStreak = isMatch ? currentStreak + 1 : 0;
+          if(streakSpan) streakSpan.innerText = currentStreak;
+          
+          addHistoryLog(latestIssue.slice(-6), currentResult, lastMadePrediction || "?", isMatch, new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}));
+        } else {
+          for (let i = Math.min(18, drawList.length)-1; i >= 0; i--) {
+            const num = parseInt(drawList[i].number);
+            if (!isNaN(num)) {
+              originalEngine.addNumber(num);
+              v3OptimizedEngine.addNumber(num, num >= 5 ? "BIG" : "SMALL");
+            }
+          }
+        }
+        lastIssueId = latestIssue;
+      }
+
+      let finalResult;
+      if (activeFormulaMode === "ORIGINAL") {
+        finalResult = originalEngine.predict();
+      } else if (activeFormulaMode === "V3OPT") {
+        finalResult = v3OptimizedEngine.predict();
+      } else {
+        finalResult = getHybridPrediction(drawList);
+      }
+      
+      updatePredictionUI(finalResult, drawList);
+
+    } catch (e) {
+      console.warn("Fetch error", e);
+    }
+  }
+
+  function toggleFormulaMode() {
+    const modes = ["HYBRID", "V3OPT", "ORIGINAL"];
+    const currentIdx = modes.indexOf(activeFormulaMode);
+    activeFormulaMode = modes[(currentIdx + 1) % modes.length];
+    
+    if (activeFormulaMode === "HYBRID") {
+      formulaSwitchBtn.classList.add("active");
+      currentFormulaLabelSpan.innerText = "HYBRID V3";
+    } else if (activeFormulaMode === "V3OPT") {
+      formulaSwitchBtn.classList.add("active");
+      currentFormulaLabelSpan.innerText = "V3 OPTIMIZED";
+    } else {
+      formulaSwitchBtn.classList.remove("active");
+      currentFormulaLabelSpan.innerText = "ORIGINAL";
+    }
+    formulaMsgSpan.innerHTML = `🔄 Switched to ${activeFormulaMode}`;
+    fetchAndProcess();
+  }
+
+  function enableDraggable() {
+    const panel = document.getElementById("floatingWidget");
+    const header = document.getElementById("dragHandle");
+    if(!panel||!header) return;
+    let isDragging = false, offsetX, offsetY;
+    header.addEventListener("mousedown", (e) => {
+      if(e.target.closest('button')) return;
+      isDragging = true;
+      const rect = panel.getBoundingClientRect();
+      offsetX = e.clientX - rect.left;
+      offsetY = e.clientY - rect.top;
+      panel.style.transition = 'none';
+      e.preventDefault();
+    });
+    window.addEventListener("mousemove", (e) => {
+      if(!isDragging) return;
+      const newLeft = Math.min(Math.max(0, e.clientX - offsetX), window.innerWidth - panel.offsetWidth);
+      const newTop = Math.min(Math.max(0, e.clientY - offsetY), window.innerHeight - panel.offsetHeight);
+      panel.style.left = newLeft + "px";
+      panel.style.top = newTop + "px";
+      panel.style.transform = 'none';
+    });
+    window.addEventListener("mouseup", () => { 
+      isDragging = false; 
+      panel.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+    });
+  }
+
+  function authSystem() {
+    const inputKey = document.getElementById("secretKey").value.trim();
+    if (inputKey !== REQUIRED_PASSWORD) { alert("⛔ ACCESS DENIED"); return; }
+
+    document.getElementById("loginOverlay").style.display = "none";
+    widget = document.getElementById("floatingWidget"); widget.style.display = "block";
+    showBtn = document.getElementById("showPanelFloatBtn");
+    predictionSpan = document.getElementById("predictionValue");
+    formulaMsgSpan = document.getElementById("formulaMessage");
+    streakSpan = document.getElementById("streakNumber");
+    historyDiv = document.getElementById("historyLogContainer");
+    timerSpan = document.getElementById("sessionTimer");
+    hideBtn = document.getElementById("hidePanelBtn");
+    formulaSwitchBtn = document.getElementById("formulaSwitch");
+    currentFormulaLabelSpan = document.getElementById("currentFormulaLabel");
+    confidenceFill = document.getElementById("confidenceFill");
+    coolModeIndicator = document.getElementById("coolModeIndicator");
+
+    if(hideBtn) hideBtn.addEventListener("click", ()=>{ widget.style.display="none"; if(showBtn) showBtn.style.display="flex"; });
+    if(showBtn) showBtn.addEventListener("click", ()=>{ widget.style.display="block"; showBtn.style.display="none"; });
+
+    document.getElementById("copyLast20Btn").addEventListener("click", copyLast20Logs);
+    document.getElementById("copyAllLogsBtn").addEventListener("click", copyAllLogs);
+
+    originalEngine = new PredictionEngineOriginal();
+    v3OptimizedEngine = new PredictionEngineV3Optimized();
+    neuralEngine = new NeuralEngine();
+    activeFormulaMode = "HYBRID";
+    formulaSwitchBtn.classList.add("active");
+    currentFormulaLabelSpan.innerText = "HYBRID V3";
+    formulaSwitchBtn.addEventListener("click", toggleFormulaMode);
+
+    if(timerSpan) timerSpan.innerText = "LIVE";
+    fetchAndProcess();
+    setInterval(fetchAndProcess, 3400);
+    enableDraggable();
+  }
+
+  window.onload = () => {};
+</script>
+</body>
+</html>
