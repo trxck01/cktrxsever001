@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>VVIP TRX | Neural Fortress Elite</title>
-  <!-- Google Fonts & Tailwind -->
+  <title>VVIP TRX | Neural Hack</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,500;14..32,700;14..32,900&family=JetBrains+Mono:wght@400;700;800&family=Orbitron:wght@500;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -15,60 +13,43 @@
       padding: 0;
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
     }
-    /* Animated gradient background - deep dark but high readability */
+
     body {
-      background: linear-gradient(125deg, #03050B, #0a1025, #010101);
-      background-size: 200% 200%;
-      animation: gradientShift 12s ease infinite;
+      background: #050816;
       font-family: 'Inter', sans-serif;
       min-height: 100vh;
       padding: env(safe-area-inset-top) 10px env(safe-area-inset-bottom);
       overflow-x: hidden;
-      color: #f0f3fa;  /* base light text */
+      color: #e2e8f0;
+      font-size: calc(14px * var(--font-scale, 1));
     }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    /* premium glass effect */
+
     .glass-panel {
-      background: rgba(6, 12, 28, 0.85);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(0, 255, 255, 0.3);
-      border-radius: 1.75rem;
-      box-shadow: 0 15px 30px -10px rgba(0,0,0,0.5), inset 0 0 12px rgba(0, 240, 255, 0.05);
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 1.2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
       transition: all 0.2s ease;
     }
-    .glass-panel:active {
-      transform: scale(0.99);
-    }
-    /* Glow pulse animation */
-    .glow-pulse {
-      animation: borderPulse 0.5s ease-out;
-    }
-    @keyframes borderPulse {
-      0% { box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.7); border-color: rgba(0,255,255,0.8);}
-      70% { box-shadow: 0 0 0 12px rgba(0, 255, 255, 0); border-color: rgba(0,255,255,0.3);}
-      100% { box-shadow: none; }
-    }
+
     .prediction-digit {
       font-family: 'Orbitron', monospace;
       font-size: clamp(2.2rem, 9vw, 3.2rem);
       font-weight: 900;
       letter-spacing: 1px;
-      transition: all 0.2s;
     }
     .big-text {
-      color: #00FFD1;
-      text-shadow: 0 0 20px #00ffc3, 0 0 5px #00ffaa;
+      color: #22c55e;
+      text-shadow: 0 0 6px rgba(34,197,94,0.35);
     }
     .small-text {
-      color: #C084FC;
-      text-shadow: 0 0 20px #b77cff, 0 0 5px #9b5de5;
+      color: #a855f7;
+      text-shadow: 0 0 6px rgba(168,85,247,0.35);
     }
-    /* toggle switch premium */
+
     .toggle-switch {
       position: relative;
       display: inline-block;
@@ -102,7 +83,7 @@
       background: #22d3ee;
       transition: 0.25s;
       border-radius: 50%;
-      box-shadow: 0 0 6px cyan;
+      box-shadow: none;
     }
     input:checked + .slider {
       background: rgba(255, 200, 50, 0.2);
@@ -111,45 +92,46 @@
     input:checked + .slider:before {
       transform: translateX(24px);
       background: #FFD966;
-      box-shadow: 0 0 10px #ffcc44;
+      box-shadow: none;
     }
-    /* badges - high contrast */
+
     .badge-win {
-      background: rgba(0, 255, 136, 0.2);
-      border: 1px solid #00ff88;
-      color: #a0ffc0;
-      border-radius: 30px;
-      padding: 3px 10px;
-      font-weight: 800;
-      font-size: 9px;
-      backdrop-filter: blur(4px);
+      background: rgba(34,197,94,0.15);
+      color: #4ade80;
+      border: 1px solid rgba(34,197,94,0.25);
+      border-radius: 999px;
+      padding: 3px 12px;
+      font-size: 10px;
+      font-weight: 700;
+      display: inline-block;
     }
     .badge-lose {
-      background: rgba(255, 50, 80, 0.2);
-      border: 1px solid #ff6680;
-      color: #ffb0c0;
-      border-radius: 30px;
-      padding: 3px 10px;
+      background: rgba(239,68,68,0.15);
+      color: #f87171;
+      border: 1px solid rgba(239,68,68,0.25);
+      border-radius: 999px;
+      padding: 3px 12px;
     }
     .badge-pending {
-      background: rgba(100, 100, 140, 0.3);
-      border: 1px solid #9a9ec0;
-      color: #e0e4ff;
-      border-radius: 30px;
-      padding: 3px 10px;
+      background: rgba(234,179,8,0.15);
+      color: #facc15;
+      border: 1px solid rgba(234,179,8,0.25);
+      border-radius: 999px;
+      padding: 3px 12px;
     }
+
     .progress-bar {
       height: 3px;
-      background: rgba(255,255,255,0.1);
+      background: #1e293b;
       border-radius: 4px;
       overflow: hidden;
     }
     .progress-fill {
       height: 100%;
-      background: linear-gradient(90deg, #00f2fe, #ffd966);
+      background: linear-gradient(90deg, #22d3ee, #ffd966);
       transition: width 0.5s ease;
     }
-    /* custom scroll */
+
     .custom-scroll::-webkit-scrollbar {
       width: 3px;
       height: 3px;
@@ -165,12 +147,12 @@
     .custom-scroll {
       -webkit-overflow-scrolling: touch;
     }
-    /* password modal */
+
     #passwordOverlay {
       position: fixed;
       inset: 0;
       background: rgba(0, 0, 0, 0.95);
-      backdrop-filter: blur(24px);
+      backdrop-filter: blur(12px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -178,66 +160,77 @@
       padding: 20px;
     }
     .password-card {
-      background: rgba(10, 20, 30, 0.98);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(0, 255, 255, 0.7);
+      background: #0f172a;
+      border: 1px solid rgba(0, 255, 255, 0.4);
       border-radius: 2rem;
       width: 100%;
       max-width: 340px;
       padding: 1.4rem 1rem;
       text-align: center;
     }
+
     .copy-btn {
-      background: rgba(0,255,200,0.15);
-      border: 1px solid #2dd4bf;
-      transition: 0.2s;
-      cursor: pointer;
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #cbd5e1;
       border-radius: 40px;
       padding: 5px 12px;
-      color: #b0f0ff;
+      font-size: 10px;
+      cursor: pointer;
+      transition: 0.1s;
     }
     .copy-btn:active {
-      transform: scale(0.96);
+      transform: scale(0.97);
+      background: #1e293b;
     }
-    /* table text contrast */
+
     th, td {
-      padding: 5px 2px;
-      color: #eef2ff;
+      padding: 8px 4px;
+      line-height: 1.5;
     }
-    .stat-card {
-      padding: 12px 5px;
-      min-height: 70px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    thead tr {
+      color: #cbd5e1;
     }
-    .stat-card p, .stat-card div {
-      color: #ffffff !important;
-    }
+
     .live-timer {
-      animation: softPulse 1s infinite alternate;
-      color: #ffdd77;
+      animation: none;
     }
-    @keyframes softPulse {
-      0% { opacity: 0.8; text-shadow: 0 0 0px cyan; }
-      100% { opacity: 1; text-shadow: 0 0 6px cyan; }
+    body {
+      --font-scale: 1;
     }
-    .header-title {
-      font-size: clamp(1.1rem, 5vw, 1.7rem);
-      color: white;
+    #passInput:focus {
+      border-color: #22d3ee;
+      box-shadow: 0 0 0 3px rgba(34,211,238,0.15);
     }
-    /* Toast container */
-    #toastContainer {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1100;
-      pointer-events: none;
+    @media (max-width: 480px) {
+      body { padding: 8px; }
+      .glass-panel { border-radius: 1rem; }
+      th, td { font-size: 10px; }
+    }
+
+    /* confidence bar (win probability) */
+    .confidence-container {
+      background: #1e293b;
+      border-radius: 20px;
+      height: 6px;
+      width: 100%;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+    .confidence-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #22c55e, #eab308);
+      border-radius: 20px;
+      transition: width 0.4s ease;
+    }
+    .confidence-text {
+      font-size: 9px;
+      font-family: monospace;
+      margin-top: 2px;
     }
     .toast {
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(12px);
+      background: #111827;
       border: 1px solid #2dd4bf;
       border-radius: 40px;
       padding: 6px 16px;
@@ -247,223 +240,400 @@
       pointer-events: none;
       white-space: nowrap;
     }
-    /* skeleton */
-    .skeleton {
-      background: rgba(255,255,255,0.08);
-      border-radius: 8px;
-      animation: pulse 1.2s infinite;
-    }
-    @keyframes pulse {
-      0% { opacity: 0.4; }
-      50% { opacity: 0.8; }
-      100% { opacity: 0.4; }
-    }
-    /* fix for any dark text */
-    button, input, .text-slate-500, .text-slate-400, .text-slate-600, .text-gray-500 {
-      color: #d1d9ff !important;
-    }
-    .text-slate-500, .text-slate-400, .text-slate-300 {
-      color: #b9c7e0 !important;
-    }
-    input::placeholder {
-      color: #8899bb !important;
-    }
-    /* responsive */
-    @media (max-width: 480px) {
-      body { padding: 8px; }
-      .glass-panel { border-radius: 1.2rem; }
-      #timerDigital { font-size: 1.3rem; }
-    }
   </style>
 </head>
-<body class="min-h-screen overflow-x-hidden">
+<body>
   <div id="passwordOverlay">
     <div class="password-card">
       <i class="fas fa-shield-alt text-4xl text-cyan-400 mb-2"></i>
       <h2 class="text-white font-bold text-xl mb-1">VVIP TRX</h2>
-      <p class="text-[9px] text-slate-300 mb-4">Enter passcode</p>
-      <input type="password" id="passInput" class="w-full bg-black/60 border border-cyan-500/70 rounded-full px-4 py-2.5 text-center text-white text-sm outline-none" placeholder="••••••••">
+      <p class="text-[11px] text-slate-400 mb-4">Enter passcode</p>
+      <input type="password" id="passInput" class="w-full bg-[#111827] border border-slate-700 rounded-full px-4 py-3 text-center text-white text-sm outline-none" placeholder="••••••••">
       <button id="unlockBtn" class="mt-5 w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold py-2.5 rounded-full">UNLOCK</button>
       <div id="passError" class="text-red-400 text-[10px] mt-3 hidden">Invalid</div>
     </div>
   </div>
 
   <div id="appMain" class="w-full max-w-[380px] mx-auto space-y-3 hidden px-2 pb-4">
-    <!-- header with extra controls -->
-    <div class="glass-panel px-4 py-2.5 rounded-2xl flex justify-between items-center flex-wrap gap-2">
+    <div class="glass-panel px-4 py-2.5 rounded-2xl flex justify-between items-center">
       <div>
-        <h1 class="header-title font-black bg-gradient-to-r from-cyan-300 via-yellow-300 to-purple-400 bg-clip-text text-transparent">VVIP TRX</h1>
-        <div class="flex items-center gap-2">
+        <h1 class="text-xl font-black bg-gradient-to-r from-cyan-300 via-yellow-300 to-purple-400 bg-clip-text text-transparent">VVIP TRX</h1>
+        <div class="flex items-center gap-2 mt-0.5">
           <span class="relative flex h-1.5 w-1.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400"></span><span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span></span>
-          <span class="text-[8px] font-bold text-slate-300">LIVE MEMORY CORE</span>
+          <span class="text-[11px] font-bold text-slate-300">LIVE MEMORY CORE</span>
         </div>
       </div>
-      <div class="flex items-center gap-1">
-        <button id="themeToggleBtn" class="text-xs bg-white/10 rounded-full w-7 h-7 flex items-center justify-center text-white"><i class="fas fa-palette"></i></button>
-        <button id="compactToggleBtn" class="text-xs bg-white/10 rounded-full w-7 h-7 flex items-center justify-center text-white"><i class="fas fa-compress-alt"></i></button>
-        <button id="shareBtn" class="text-xs bg-white/10 rounded-full w-7 h-7 flex items-center justify-center text-white"><i class="fas fa-share-alt"></i></button>
-        <label class="toggle-switch"><input type="checkbox" id="hackToggleBtn"><span class="slider"></span></label>
+      <div class="flex items-center gap-2">
+        <span class="text-[12px] font-bold uppercase text-cyan-300">Mod Win Hack</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="hackToggleBtn">
+          <span class="slider"></span>
+        </label>
       </div>
     </div>
 
-    <!-- Prediction Card -->
-    <div class="glass-panel p-3 sm:p-5 text-center relative" id="mainPredictionCard">
-      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-yellow-400 to-fuchsia-500"></div>
-      <div class="text-[10px] font-bold text-slate-300 tracking-[0.2em] uppercase">⚡ QUANTUM SIGNAL</div>
+    <div class="glass-panel p-4 text-center relative" id="mainPredictionCard">
+      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-yellow-400 to-fuchsia-500 rounded-t-2xl"></div>
+      <div class="text-[12px] font-bold text-slate-400 tracking-[0.2em] uppercase mb-1">⚡ QUANTUM SIGNAL</div>
       <div id="predictionValue" class="prediction-digit my-1">---</div>
       <div class="flex justify-between items-center mt-2">
-        <div><div class="text-[8px] text-slate-300">Next Issue</div><div id="nextPeriodId" class="font-mono text-xs font-bold text-cyan-300">------</div></div>
-        <div><div class="text-[8px] text-slate-300">Countdown</div><div id="timerDigital" class="font-mono text-2xl font-black text-yellow-400 live-timer">00s</div></div>
+        <div><div class="text-[11px] text-slate-400">Next Issue</div><div id="nextPeriodId" class="font-mono text-base font-bold text-cyan-300">------</div></div>
+        <div><div class="text-[11px] text-slate-400">Countdown</div><div id="timerDigital" class="font-mono text-2xl font-black text-cyan-300">00s</div></div>
       </div>
       <div class="mt-2 flex justify-between items-center gap-2 flex-wrap">
-        <div id="confidenceBadge" class="text-[8px] bg-white/10 px-3 py-1 rounded-full border border-cyan-500/60 text-cyan-200">🔮 Standard</div>
-        <div class="flex items-center gap-1 text-[9px] text-slate-200"><i class="fas fa-text-height"></i><input type="range" id="fontScaleSlider" min="0.8" max="1.3" step="0.02" value="1" class="w-20 accent-cyan-400"></div>
+        <div id="confidenceBadge" class="text-[11px] bg-white/5 px-3 py-1 rounded-full border border-cyan-500/30 text-cyan-200">🔮 Standard</div>
+        <div class="flex items-center gap-1 text-[11px] text-slate-300"><i class="fas fa-text-height"></i><input type="range" id="fontScaleSlider" min="0.85" max="1.25" step="0.02" value="1" class="w-20 accent-cyan-400"></div>
+      </div>
+      <!-- Win Probability Bar (Confidence) -->
+      <div class="mt-3">
+        <div class="flex justify-between text-[9px] text-slate-400 mb-0.5"><span>Win Probability</span><span id="winProbPercent">0%</span></div>
+        <div class="confidence-container"><div id="winProbFill" class="confidence-fill" style="width:0%"></div></div>
       </div>
       <div class="progress-bar mt-3"><div id="accuracyFillBar" class="progress-fill"></div></div>
     </div>
 
-    <!-- Stats Row - all text now bright -->
     <div class="grid grid-cols-3 gap-2">
-      <div class="glass-panel stat-card text-center"><p class="text-[8px] text-slate-300 uppercase">🏆 Wins</p><p id="winsCount" class="text-2xl font-black text-green-400">0</p></div>
-      <div class="glass-panel stat-card text-center"><p class="text-[8px] text-slate-300 uppercase">💀 Losses</p><p id="lossesCount" class="text-2xl font-black text-red-400">0</p></div>
-      <div class="glass-panel stat-card text-center"><p class="text-[8px] text-slate-300 uppercase">🎯 Accuracy</p><p id="accuracyPercent" class="text-2xl font-black text-cyan-400">0%</p></div>
+      <div class="glass-panel p-3 text-center"><p class="text-[11px] text-slate-400 uppercase font-semibold">🏆 Wins</p><p id="winsCount" class="text-2xl font-black text-green-400">0</p></div>
+      <div class="glass-panel p-3 text-center"><p class="text-[11px] text-slate-400 uppercase font-semibold">💀 Losses</p><p id="lossesCount" class="text-2xl font-black text-red-400">0</p></div>
+      <div class="glass-panel p-3 text-center"><p class="text-[11px] text-slate-400 uppercase font-semibold">🎯 Accuracy</p><p id="accuracyPercent" class="text-2xl font-black text-cyan-400">0%</p></div>
     </div>
 
-    <!-- Memory Matrix with sparkline and pull-to-refresh -->
-    <div class="glass-panel overflow-hidden rounded-2xl" id="matrixPanel">
+    <div class="glass-panel overflow-hidden rounded-2xl">
       <div class="px-3 py-2 border-b border-white/10 flex justify-between items-center">
-        <span class="text-[9px] font-extrabold tracking-widest text-slate-200"><i class="fas fa-brain text-cyan-400"></i> MEMORY MATRIX</span>
-        <div class="flex gap-1"><button id="copyLogBtn" class="copy-btn text-[8px] px-2.5 py-1 rounded-full"><i class="fas fa-copy"></i> Copy</button><button id="refreshManualBtn" class="copy-btn text-[8px] px-2.5 py-1 rounded-full"><i class="fas fa-sync-alt"></i> Sync</button></div>
+        <span class="text-[12px] font-extrabold tracking-widest text-slate-200"><i class="fas fa-brain text-cyan-400"></i> MEMORY MATRIX</span>
+        <div class="flex gap-1"><button id="copyLogBtn" class="copy-btn"><i class="fas fa-copy"></i> Copy</button><button id="refreshManualBtn" class="copy-btn"><i class="fas fa-sync-alt"></i> Sync</button></div>
       </div>
       <div class="overflow-x-auto max-h-72 overflow-y-auto custom-scroll" id="tableContainer">
-        <table class="w-full text-center text-[11px]" id="historyTable">
-          <thead class="sticky top-0 bg-[#0a0f1f]/95 backdrop-blur">
-            <tr class="text-slate-300 text-[9px] uppercase">
-              <th class="py-2">Period</th><th class="text-slate-200">Num</th><th class="text-slate-200">Result</th><th class="text-slate-200">Pred</th><th class="text-slate-200">Status</th>
-            </tr>
+        <table class="w-full text-center text-[12px]" id="historyTable">
+          <thead class="sticky top-0 bg-[#111827]">
+            <tr class="text-slate-300 text-[11px] uppercase"><th class="py-2">Period</th><th>Num</th><th>Result</th><th>Pred</th><th>Status</th></tr>
           </thead>
           <tbody id="historyLogBody"><tr><td colspan="5" class="py-6 text-slate-400 text-xs text-center">loading...</td></tr></tbody>
         </table>
       </div>
     </div>
-    <div class="text-center text-[8px] text-slate-400 font-mono">↓ pull table to refresh | VVIP TRX Elite</div>
+    <div class="text-center text-[10px] text-slate-500 font-mono pb-1">↓ pull to refresh | VVIP TRX Hack Mode</div>
   </div>
   <div id="toastContainer" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[1100] pointer-events-none flex flex-col items-center"></div>
 
   <script>
-    // --------------------------- GLOBALS & CORE (unchanged logic) ---------------------------
+    // --------------------------- CORE (with hack mode full history rebuild) ---------------------------
     const API_URL = "https://draw.ar-lottery01.com/TrxWinGo/TrxWinGo_1M/GetHistoryIssuePage.json";
     const STORAGE_KEY = "vvip_trx_memory_ultimate";
     const ACCESS_PASSWORD = "NEWHACKVIPCK";
-    let rawHistory = [], predictionLog = [], memoryPatternBank = {};
-    let hackActive = false, currentPrediction = { value: "BIG", source: "Standard", confidence: 70 };
+    let rawHistory = [];            // from API { issueNumber, number }
+    let predictionLog = [];         // { issue, number, actual, predicted, status }
+    let memoryPatternBank = {};     // for learning only (reset on mode change)
+    let hackActive = false;
+    let currentPrediction = { value: "BIG", source: "Standard", confidence: 70 };
     let totalWins = 0, totalLosses = 0;
     let isSyncing = false;
 
-    // DOM elements
     const appMain = document.getElementById("appMain"), overlay = document.getElementById("passwordOverlay");
     const passInput = document.getElementById("passInput"), unlockBtn = document.getElementById("unlockBtn"), passError = document.getElementById("passError");
 
-    // Helper
     function numberToSide(num) { let last = parseInt(String(num).slice(-1)); return last <= 4 ? "SMALL" : "BIG"; }
-    function showToast(msg, icon = "✅") { const container = document.getElementById("toastContainer"); const toast = document.createElement("div"); toast.className = "toast"; toast.innerHTML = `${icon} ${msg}`; container.appendChild(toast); setTimeout(() => toast.remove(), 2000); if (navigator.vibrate) navigator.vibrate(30); }
-    function triggerGlow(element) { if(element) { element.classList.add("glow-pulse"); setTimeout(() => element.classList.remove("glow-pulse"), 600); } }
+    function showToast(msg, icon = "✅") { const c = document.getElementById("toastContainer"); const t = document.createElement("div"); t.className = "toast"; t.innerHTML = `${icon} ${msg}`; c.appendChild(t); setTimeout(() => t.remove(), 2000); if (navigator.vibrate) navigator.vibrate(30); }
+    function triggerGlow(el) { if(el) { el.classList.add("glow-pulse"); setTimeout(() => el.classList.remove("glow-pulse"), 500); } }
     function haptic() { if (navigator.vibrate) navigator.vibrate(20); }
 
-    // Load/store
-    function loadPersistentData() { const s = localStorage.getItem(STORAGE_KEY); if(s) { try{ const d=JSON.parse(s); memoryPatternBank=d.memoryBank||{}; predictionLog=d.logs||[]; totalWins=d.wins||0; totalLosses=d.losses||0; }catch(e){} } updateStatsUI(); }
-    function persistAll() { localStorage.setItem(STORAGE_KEY, JSON.stringify({ memoryBank: memoryPatternBank, logs: predictionLog, wins: totalWins, losses: totalLosses })); }
+    // win probability based on recent performance (rolling accuracy)
+    function computeWinProbability() {
+      let total = totalWins + totalLosses;
+      if (total === 0) return 50;
+      let recent = predictionLog.slice(0, 10).filter(p => p.status === "win" || p.status === "lose");
+      let recentWins = recent.filter(p => p.status === "win").length;
+      if (recent.length === 0) return Math.round((totalWins / total) * 100);
+      let prob = (recentWins / recent.length) * 100;
+      return Math.min(95, Math.max(5, Math.round(prob)));
+    }
 
-    // Prediction engines (exact same)
-    function normalPrediction() { if(!rawHistory.length) return "BIG"; return numberToSide(rawHistory[0].number); }
-    function getMemoryPrediction(hist) { if(!hist||hist.length<5) return null; const recent4=hist.slice(0,4).map(i=>numberToSide(i.number)==="BIG"?"B":"S").join(""); if(hist.length>=6){ for(let i=1;i<=hist.length-5;i++){ const seq=hist.slice(i,i+4).map(h=>numberToSide(h.number)==="BIG"?"B":"S").join(""); const nxt=numberToSide(hist[i+3].number); if(seq.length===4&&nxt) memoryPatternBank[seq]=nxt; } } if(memoryPatternBank[recent4]) return { value: memoryPatternBank[recent4], source: "MEMORY", confidence:91 }; const bigCount=hist.slice(0,5).filter(h=>numberToSide(h.number)==="BIG").length; return { value: bigCount>=3?"SMALL":"BIG", source: "MEMORY-FALLBACK", confidence:68 }; }
-    function getVotingPrediction(hist) { if(!hist||hist.length<4) return null; let votes={BIG:0,SMALL:0}; if(hist.length>=5){ let avg=hist.slice(0,5).reduce((s,h)=>s+h.number,0)/5; votes[avg>4.5?"SMALL":"BIG"]++; } if(hist.length>=3){ let w=(hist[0].number*0.5)+(hist[1].number*0.3)+(hist[2].number*0.2); votes[w>4.5?"SMALL":"BIG"]++; } let last3Big=hist.slice(0,3).filter(h=>numberToSide(h.number)==="BIG").length; votes[last3Big>=2?"SMALL":"BIG"]++; if(hist.length>=2) votes[hist[0].number>hist[1].number?"BIG":"SMALL"]++; let final=votes.BIG>votes.SMALL?"BIG":"SMALL"; let conf=votes.BIG===votes.SMALL?70:(Math.abs(votes.BIG-votes.SMALL)>=2?88:80); return { value: final, source: "AI_VOTING", confidence:conf }; }
-    function getHackPrediction(hist) { const mem=getMemoryPrediction(hist), ai=getVotingPrediction(hist); if(!mem&&!ai) return { value:"BIG", source:"HACK_FALLBACK", confidence:55}; if(!mem) return ai; if(!ai) return mem; if(mem.value===ai.value){ let conf=Math.min(97,(mem.confidence+ai.confidence)-45); return { value:mem.value, source:"HACK_CONSENSUS", confidence:conf }; } if(mem.source.includes("FALLBACK")&&mem.confidence<70) return ai; return mem; }
-    function computeCurrentPrediction() { if(!rawHistory.length) return { value:"BIG", source:"Awaiting data", confidence:50 }; if(!hackActive) return { value:normalPrediction(), source:"STANDARD (last digit)", confidence:75 }; else return getHackPrediction(rawHistory); }
+    // ---------- prediction engines (identical as before) ----------
+    function normalPrediction(histForPred) { 
+      if(!histForPred || !histForPred.length) return "BIG";
+      return numberToSide(histForPred[0].number);
+    }
+    function getMemoryPrediction(hist) {
+      if(!hist || hist.length < 5) return null;
+      const recent4 = hist.slice(0,4).map(i => numberToSide(i.number)==="BIG"?"B":"S").join("");
+      if(hist.length >= 6) {
+        for(let i=1; i<=hist.length-5; i++) {
+          const seq = hist.slice(i, i+4).map(h => numberToSide(h.number)==="BIG"?"B":"S").join("");
+          const nxt = numberToSide(hist[i+3].number);
+          if(seq.length===4 && nxt) memoryPatternBank[seq] = nxt;
+        }
+      }
+      if(memoryPatternBank[recent4]) return { value: memoryPatternBank[recent4], source: "MEMORY", confidence: 91 };
+      const bigCount = hist.slice(0,5).filter(h => numberToSide(h.number)==="BIG").length;
+      const fallback = bigCount >= 3 ? "SMALL" : "BIG";
+      return { value: fallback, source: "MEMORY-FALLBACK", confidence: 68 };
+    }
+    function getVotingPrediction(hist) {
+      if(!hist || hist.length < 4) return null;
+      let votes = { BIG:0, SMALL:0 };
+      if(hist.length>=5) { let avg = hist.slice(0,5).reduce((s,h)=>s+h.number,0)/5; votes[avg > 4.5 ? "SMALL" : "BIG"]++; }
+      if(hist.length>=3) { let w = (hist[0].number*0.5)+(hist[1].number*0.3)+(hist[2].number*0.2); votes[w > 4.5 ? "SMALL" : "BIG"]++; }
+      let last3Big = hist.slice(0,3).filter(h=>numberToSide(h.number)==="BIG").length;
+      votes[last3Big >= 2 ? "SMALL" : "BIG"]++;
+      if(hist.length>=2) votes[hist[0].number > hist[1].number ? "BIG" : "SMALL"]++;
+      let final = votes.BIG > votes.SMALL ? "BIG" : "SMALL";
+      let conf = (votes.BIG === votes.SMALL) ? 70 : (Math.abs(votes.BIG - votes.SMALL)>=2 ? 88 : 80);
+      return { value: final, source: "AI_VOTING", confidence: conf };
+    }
+    function getHackPrediction(hist) {
+      const mem = getMemoryPrediction(hist);
+      const ai = getVotingPrediction(hist);
+      if(!mem && !ai) return { value: "BIG", source: "HACK_FALLBACK", confidence: 55 };
+      if(!mem) return ai; if(!ai) return mem;
+      if(mem.value === ai.value) {
+        let conf = Math.min(97, (mem.confidence + ai.confidence) - 45);
+        return { value: mem.value, source: "HACK_CONSENSUS", confidence: conf };
+      }
+      if(mem.source.includes("FALLBACK") && mem.confidence < 70) return ai;
+      return mem;
+    }
+    function computePredictionForHistory(histSlice, isHack) {
+      if(!histSlice.length) return "BIG";
+      if(!isHack) return normalPrediction(histSlice);
+      else {
+        let res = getHackPrediction(histSlice);
+        return res.value;
+      }
+    }
 
-    // Sync & settle
+    // ---------- full rebuild of prediction log based on current hack mode ----------
+    function rebuildHistoryFromScratch() {
+      if(!rawHistory.length) return;
+      memoryPatternBank = {};
+      predictionLog = [];
+      totalWins = 0;
+      totalLosses = 0;
+      
+      const chrono = [...rawHistory].reverse();
+      for(let i = 0; i < chrono.length; i++) {
+        const currentItem = chrono[i];
+        const actualSide = numberToSide(currentItem.number);
+        const previousRounds = chrono.slice(0, i);
+        let predictedSide = "BIG";
+        if(previousRounds.length === 0) {
+          predictedSide = "BIG";
+        } else {
+          const recentFirst = [...previousRounds].reverse();
+          predictedSide = computePredictionForHistory(recentFirst, hackActive);
+        }
+        const isWin = (predictedSide === actualSide);
+        if(isWin) totalWins++; else totalLosses++;
+        predictionLog.unshift({
+          issue: currentItem.issueNumber,
+          number: currentItem.number,
+          actual: actualSide,
+          predicted: predictedSide,
+          status: isWin ? "win" : "lose",
+          timestamp: Date.now()
+        });
+      }
+      const nextPredValue = computePredictionForHistory(rawHistory, hackActive);
+      const latestIssue = rawHistory[0].issueNumber;
+      const nextIssue = (BigInt(latestIssue) + 1n).toString();
+      predictionLog = predictionLog.filter(p => p.issue !== nextIssue);
+      predictionLog.unshift({
+        issue: nextIssue,
+        number: null,
+        actual: null,
+        predicted: nextPredValue,
+        status: "pending",
+        timestamp: Date.now()
+      });
+      let confidenceVal = hackActive ? 88 : 75;
+      if (totalWins+totalLosses > 0) confidenceVal = Math.round((totalWins/(totalWins+totalLosses))*100);
+      currentPrediction = { value: nextPredValue, source: hackActive ? "HACK" : "STANDARD", confidence: confidenceVal };
+      persistAll();
+      renderUI();
+    }
+
     async function syncFromAPI(showLoading = false) {
-      if(isSyncing) return; isSyncing=true;
+      if(isSyncing) return;
+      isSyncing = true;
       if(showLoading) document.getElementById("historyLogBody").innerHTML = '<tr><td colspan="5" class="py-4"><div class="skeleton h-6 w-full mx-auto"></div></td></tr>';
-      try{
+      try {
         const resp = await fetch(API_URL);
-        if(!resp.ok) throw new Error("Network error");
+        if(!resp.ok) throw new Error("Network");
         const json = await resp.json();
         let list = json?.data?.list || json?.list || [];
         if(!list.length) throw new Error("No data");
-        const formatted = list.map(item=>({ issueNumber:String(item.issueNumber||item.issue), number:parseInt(item.number!==undefined?item.number:item.openNum,10) })).filter(f=>f.issueNumber&&!isNaN(f.number));
-        if(!formatted.length) throw new Error("Invalid format");
-        rawHistory = formatted;
-        const latest = rawHistory[0], actualSide = numberToSide(latest.number), currIssue = latest.issueNumber;
-        const existingIdx = predictionLog.findIndex(p=>p.issue===currIssue);
-        if(existingIdx !== -1 && predictionLog[existingIdx].status === "pending") {
-          let entry = predictionLog[existingIdx];
-          let isWin = (entry.predicted === actualSide);
-          entry.status = isWin ? "win" : "lose"; entry.actual = actualSide; entry.number = latest.number;
-          if(isWin) totalWins++; else totalLosses++;
-          updateStatsUI(); persistAll();
-          if(isWin) showToast(`Round ${currIssue.slice(-4)} WIN!`, "🎉"); else showToast(`Round ${currIssue.slice(-4)} LOSE`, "💔");
+        const formatted = list.map(item => ({
+          issueNumber: String(item.issueNumber || item.issue),
+          number: parseInt(item.number !== undefined ? item.number : item.openNum, 10)
+        })).filter(f => f.issueNumber && !isNaN(f.number));
+        if(!formatted.length) throw new Error("Invalid");
+        const newRaw = formatted;
+        const oldStr = JSON.stringify(rawHistory.map(i=>i.issueNumber));
+        const newStr = JSON.stringify(newRaw.map(i=>i.issueNumber));
+        rawHistory = newRaw;
+        if(oldStr !== newStr) {
+          rebuildHistoryFromScratch();
+        } else {
+          renderUI();
         }
-        const nextPred = computeCurrentPrediction(); currentPrediction = nextPred;
-        const nextIssue = (BigInt(latest.issueNumber) + 1n).toString();
-        const already = predictionLog.find(p=>p.issue===nextIssue);
-        if(!already) { predictionLog.unshift({ issue:nextIssue, number:null, actual:null, predicted:currentPrediction.value, status:"pending", timestamp:Date.now() }); if(predictionLog.length>50) predictionLog.pop(); persistAll(); }
-        else if(already.status==="pending") { already.predicted = currentPrediction.value; persistAll(); }
-        renderUI();
-        triggerGlow(document.getElementById("mainPredictionCard"));
         haptic();
-      } catch(err) { console.warn(err); showToast("Sync failed", "⚠️"); document.getElementById("historyLogBody").innerHTML = '<tr><td colspan="5" class="py-4 text-red-400 text-center">⚠️ Network error. <button id="retryBtn" class="underline">Retry</button></td></tr>'; const retryBtn=document.getElementById("retryBtn"); if(retryBtn) retryBtn.onclick=()=>syncFromAPI(true); }
-      finally { isSyncing=false; }
+        triggerGlow(document.getElementById("mainPredictionCard"));
+      } catch(err) {
+        showToast("Sync failed", "⚠️");
+        document.getElementById("historyLogBody").innerHTML = '<tr><td colspan="5" class="py-4 text-red-400 text-center">⚠️ Network error. <button id="retryBtn" class="underline">Retry</button></td></tr>';
+        const retryBtn = document.getElementById("retryBtn");
+        if(retryBtn) retryBtn.onclick = () => syncFromAPI(true);
+      } finally { isSyncing = false; }
     }
 
-    function renderUI(){
-      const predDiv=document.getElementById("predictionValue"); predDiv.innerText=currentPrediction.value;
+    function renderUI() {
+      const predDiv = document.getElementById("predictionValue");
+      predDiv.innerText = currentPrediction.value;
       predDiv.className = `prediction-digit my-1 ${currentPrediction.value==="BIG"?"big-text":"small-text"}`;
       document.getElementById("nextPeriodId").innerText = rawHistory.length ? (BigInt(rawHistory[0].issueNumber)+1n).toString().slice(-8) : "------";
-      const chip=document.getElementById("confidenceBadge");
-      if(hackActive){ chip.innerHTML=`⚡ HACK MODE · ${currentPrediction.source} | CONF ${currentPrediction.confidence}%`; chip.classList.add("border-yellow-500","text-yellow-200"); chip.classList.remove("border-cyan-500/60","text-cyan-200"); }
-      else{ chip.innerHTML=`🔮 STANDARD · ${currentPrediction.source}`; chip.classList.remove("border-yellow-500","text-yellow-200"); chip.classList.add("border-cyan-500/60","text-cyan-200"); }
-      const tbody=document.getElementById("historyLogBody");
-      let displayList=[...predictionLog]; displayList.sort((a,b)=>b.issue.localeCompare(a.issue)); let limited=displayList.slice(0,18);
-      if(limited.length===0) tbody.innerHTML='<tr><td colspan="5" class="py-5 text-center text-slate-400">No data</td></tr>';
-      else{
-        let html="";
-        for(let rec of limited){
-          let issueShort=rec.issue.slice(-6), numDisp=rec.number!==null?rec.number:"—";
-          let actualDisplay=rec.actual?rec.actual:(rec.number?numberToSide(rec.number):"?");
-          let predDisplay=rec.predicted||"?";
-          let statusSpan=""; if(rec.status==="win") statusSpan='<span class="badge-win">WIN</span>'; else if(rec.status==="lose") statusSpan='<span class="badge-lose">LOSE</span>'; else statusSpan='<span class="badge-pending">PEND</span>';
-          html+=`<tr class="border-b border-white/5"><td class="py-1.5 font-mono text-[9px] text-slate-200">#${issueShort}</td><td class="font-bold text-xs text-white">${numDisp}</td><td class="text-[10px] ${actualDisplay==='BIG'?'text-green-300':'text-fuchsia-300'}">${actualDisplay}</td><td class="text-[10px] ${predDisplay==='BIG'?'text-yellow-400':'text-purple-300'}">${predDisplay}</td><td>${statusSpan}</td></tr>`;
-        }
-        tbody.innerHTML=html;
+      const chip = document.getElementById("confidenceBadge");
+      if(hackActive) {
+        chip.innerHTML = `⚡ HACK MODE · ${currentPrediction.source} | CONF ${currentPrediction.confidence || 88}%`;
+        chip.classList.add("border-yellow-500","text-yellow-200");
+        chip.classList.remove("border-cyan-500/30","text-cyan-200");
+      } else {
+        chip.innerHTML = `🔮 STANDARD · ${currentPrediction.source}`;
+        chip.classList.remove("border-yellow-500","text-yellow-200");
+        chip.classList.add("border-cyan-500/30","text-cyan-200");
       }
-      updateStatsUI(); const totalGames=totalWins+totalLosses, accRate=totalGames===0?0:Math.round((totalWins/totalGames)*100);
-      document.getElementById("accuracyFillBar").style.width=accRate+"%";
+      const tbody = document.getElementById("historyLogBody");
+      let displayList = [...predictionLog];
+      displayList.sort((a,b)=>b.issue.localeCompare(a.issue));
+      let limited = displayList.slice(0,18);
+      if(limited.length===0) tbody.innerHTML='<tr><td colspan="5" class="py-5 text-center text-slate-400">No data</td></tr>';
+      else {
+        let html = "";
+        for(let rec of limited) {
+          let issueShort = rec.issue.slice(-6);
+          let numDisp = rec.number !== null ? rec.number : "—";
+          let actualDisplay = rec.actual ? rec.actual : (rec.number ? numberToSide(rec.number) : "?");
+          let predDisplay = rec.predicted || "?";
+          let statusSpan = "";
+          if(rec.status === "win") statusSpan = '<span class="badge-win">WIN</span>';
+          else if(rec.status === "lose") statusSpan = '<span class="badge-lose">LOSE</span>';
+          else statusSpan = '<span class="badge-pending">PEND</span>';
+          html += `<tr class="border-b border-white/5">
+            <td class="py-1.5 font-mono text-[11px] text-slate-200">#${issueShort}</td>
+            <td class="font-bold text-sm text-white">${numDisp}</td>
+            <td class="text-xs ${actualDisplay==='BIG'?'text-green-300':'text-fuchsia-300'}">${actualDisplay}</td>
+            <td class="text-xs ${predDisplay==='BIG'?'text-yellow-400':'text-purple-300'}">${predDisplay}</td>
+            <td>${statusSpan}</td>
+          </td>`;
+        }
+        tbody.innerHTML = html;
+      }
+      updateStatsUI();
+      const totalGames = totalWins + totalLosses;
+      const accRate = totalGames === 0 ? 0 : Math.round((totalWins/totalGames)*100);
+      document.getElementById("accuracyFillBar").style.width = accRate + "%";
+      
+      // update win probability bar
+      let winProb = computeWinProbability();
+      document.getElementById("winProbPercent").innerText = winProb + "%";
+      document.getElementById("winProbFill").style.width = winProb + "%";
     }
-    function updateStatsUI(){ document.getElementById("winsCount").innerText=totalWins; document.getElementById("lossesCount").innerText=totalLosses; let total=totalWins+totalLosses; document.getElementById("accuracyPercent").innerText=total===0?0:Math.round((totalWins/total)*100)+"%"; }
 
-    // Additional features: font scaling, compact mode, theme, share, pull to refresh
-    function initUIEnhancements(){
-      const fontSlider=document.getElementById("fontScaleSlider"); if(fontSlider){ fontSlider.addEventListener("input",(e)=>{ document.querySelectorAll(".prediction-digit, .stat-card p, .header-title, #timerDigital, #confidenceBadge").forEach(el=>el.style.fontSize=`${e.target.value}em`); }); }
-      let compact=false; document.getElementById("compactToggleBtn")?.addEventListener("click",()=>{ compact=!compact; if(compact) document.body.classList.add("compact-mode"); else document.body.classList.remove("compact-mode"); showToast(compact?"Compact mode ON":"Compact mode OFF"); });
-      let themeIdx=0; const themes=["","theme-amber"]; document.getElementById("themeToggleBtn")?.addEventListener("click",()=>{ themeIdx=(themeIdx+1)%themes.length; document.body.classList.remove("theme-amber"); if(themes[themeIdx]) document.body.classList.add(themes[themeIdx]); showToast(themes[themeIdx]?"Amber theme":"Dark theme"); });
-      document.getElementById("shareBtn")?.addEventListener("click",()=>{ if(navigator.share) navigator.share({ title:"VVIP TRX Prediction", text:`Current signal: ${currentPrediction.value}\nWin rate: ${document.getElementById("accuracyPercent").innerText}`, url:location.href }).catch(()=>showToast("Share cancelled")); else showToast("Share not supported"); });
-      const tableContainer=document.getElementById("tableContainer"); let touchStartY=0; tableContainer.addEventListener("touchstart",(e)=>{ touchStartY=e.touches[0].clientY; }); tableContainer.addEventListener("touchmove",(e)=>{ if(tableContainer.scrollTop===0 && e.touches[0].clientY-touchStartY>30){ e.preventDefault(); syncFromAPI(true); showToast("Refreshing..."); } });
-      document.getElementById("refreshManualBtn")?.addEventListener("click",()=>syncFromAPI(true));
-      document.getElementById("copyLogBtn")?.addEventListener("click",()=>{ let text="Period\tNum\tResult\tPred\tStatus\n"+predictionLog.slice(0,18).map(r=>`${r.issue.slice(-6)}\t${r.number??"-"}\t${r.actual??(r.number?numberToSide(r.number):"?")}\t${r.predicted??"?"}\t${r.status==="win"?"WIN":r.status==="lose"?"LOSE":"PEND"}`).join("\n"); navigator.clipboard.writeText(text).then(()=>showToast("Copied!","📋")).catch(()=>showToast("Copy failed")); });
+    function updateStatsUI() {
+      document.getElementById("winsCount").innerText = totalWins;
+      document.getElementById("lossesCount").innerText = totalLosses;
+      let total = totalWins+totalLosses;
+      document.getElementById("accuracyPercent").innerText = total===0 ? 0 : Math.round((totalWins/total)*100) + "%";
     }
 
-    // Timer & auto sync
+    function persistAll() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        memoryBank: memoryPatternBank,
+        logs: predictionLog,
+        wins: totalWins,
+        losses: totalLosses,
+        hackActive: hackActive
+      }));
+    }
+
+    function loadPersistentData() {
+      const s = localStorage.getItem(STORAGE_KEY);
+      if(s) {
+        try {
+          const d = JSON.parse(s);
+          memoryPatternBank = d.memoryBank || {};
+          predictionLog = d.logs || [];
+          totalWins = d.wins || 0;
+          totalLosses = d.losses || 0;
+        } catch(e) {}
+      }
+      if(!predictionLog.length) predictionLog = [];
+      updateStatsUI();
+    }
+
+    function initHackToggle() {
+      const toggle = document.getElementById("hackToggleBtn");
+      toggle.addEventListener("change", (e) => {
+        hackActive = e.target.checked;
+        if(rawHistory.length) {
+          rebuildHistoryFromScratch();
+        }
+        renderUI();
+        showToast(hackActive ? "Hack Mode ON - history recalculated" : "Standard Mode ON - history recalculated", hackActive ? "🔥" : "🔮");
+      });
+    }
+
     let timerInterval;
-    function startTimerAndAutoSync(){ updateTimer(); timerInterval=setInterval(()=>{ updateTimer(); let secs=new Date().getSeconds(); if(secs===58||secs===59||secs===0) syncFromAPI(); },1000); }
-    function updateTimer(){ let remain=60-new Date().getSeconds(); document.getElementById("timerDigital").innerText=`${remain.toString().padStart(2,'0')}s`; }
+    function startTimerAndAutoSync() {
+      updateTimer();
+      timerInterval = setInterval(() => {
+        updateTimer();
+        let secs = new Date().getSeconds();
+        if(secs === 58 || secs === 59 || secs === 0) syncFromAPI(false);
+      }, 1000);
+    }
+    function updateTimer() {
+      let remain = 60 - new Date().getSeconds();
+      document.getElementById("timerDigital").innerText = `${remain.toString().padStart(2,'0')}s`;
+    }
 
-    // Hack toggle
-    function initHackToggle(){ const toggle=document.getElementById("hackToggleBtn"); toggle.addEventListener("change",(e)=>{ hackActive=e.target.checked; if(rawHistory.length){ currentPrediction=computeCurrentPrediction(); const nextIssue=(BigInt(rawHistory[0].issueNumber)+1n).toString(); let pending=predictionLog.find(p=>p.issue===nextIssue&&p.status==="pending"); if(pending) pending.predicted=currentPrediction.value; else predictionLog.unshift({issue:nextIssue,number:null,actual:null,predicted:currentPrediction.value,status:"pending",timestamp:Date.now()}); persistAll(); renderUI(); } }); }
+    function initUI() {
+      const slider = document.getElementById("fontScaleSlider");
+      if(slider) slider.addEventListener("input", (e) => { document.body.style.setProperty("--font-scale", e.target.value); });
+      document.getElementById("refreshManualBtn")?.addEventListener("click", () => syncFromAPI(true));
+      document.getElementById("copyLogBtn")?.addEventListener("click", () => {
+        let text = "Period\tNum\tResult\tPred\tStatus\n" + predictionLog.slice(0,18).map(r => `${r.issue.slice(-6)}\t${r.number??"-"}\t${r.actual??(r.number?numberToSide(r.number):"?")}\t${r.predicted??"?"}\t${r.status==="win"?"WIN":r.status==="lose"?"LOSE":"PEND"}`).join("\n");
+        navigator.clipboard.writeText(text).then(() => showToast("Copied!","📋")).catch(()=>showToast("Copy failed"));
+      });
+      const tableContainer = document.getElementById("tableContainer");
+      let touchStartY = 0;
+      tableContainer.addEventListener("touchstart", (e) => { touchStartY = e.touches[0].clientY; });
+      tableContainer.addEventListener("touchmove", (e) => {
+        if(tableContainer.scrollTop === 0 && e.touches[0].clientY - touchStartY > 30) {
+          e.preventDefault();
+          syncFromAPI(true);
+          showToast("Refreshing...");
+        }
+      });
+    }
 
-    // Unlock
-    function unlock(){ if(passInput.value.trim()===ACCESS_PASSWORD){ overlay.style.display="none"; appMain.classList.remove("hidden"); loadPersistentData(); initHackToggle(); initUIEnhancements(); syncFromAPI(true).then(()=>{ startTimerAndAutoSync(); setInterval(()=>syncFromAPI(),25000); }); } else{ passError.classList.remove("hidden"); passInput.classList.add("border-red-500"); setTimeout(()=>{passError.classList.add("hidden");passInput.classList.remove("border-red-500");},1800); } }
-    unlockBtn.addEventListener("click",unlock); passInput.addEventListener("keypress",e=>{if(e.key==="Enter") unlock();});
+    function unlock() {
+      if(passInput.value.trim() === ACCESS_PASSWORD) {
+        overlay.style.display = "none";
+        appMain.classList.remove("hidden");
+        loadPersistentData();
+        initHackToggle();
+        initUI();
+        syncFromAPI(true).then(() => {
+          startTimerAndAutoSync();
+          setInterval(() => syncFromAPI(false), 25000);
+        });
+      } else {
+        passError.classList.remove("hidden");
+        passInput.classList.add("border-red-500");
+        setTimeout(() => { passError.classList.add("hidden"); passInput.classList.remove("border-red-500"); }, 1800);
+      }
+    }
+    unlockBtn.addEventListener("click", unlock);
+    passInput.addEventListener("keypress", (e) => { if(e.key === "Enter") unlock(); });
   </script>
 </body>
 </html>
